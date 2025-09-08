@@ -1,5 +1,6 @@
 ﻿using EliteRentalsAPI.Data;
 using EliteRentalsAPI.Models;
+using EliteRentalsAPI.Models.DTOs;
 using EliteRentalsAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,24 +41,25 @@ namespace EliteRentalsAPI.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             var user = await _ctx.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
-            if (user == null) return Unauthorized(new { message = "Invalid email or password" });
-
-            bool valid = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
-            if (!valid) return Unauthorized(new { message = "Invalid email or password" });
+            if (user == null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
+                return Unauthorized(new { message = "Invalid email or password" });
 
             var token = _tokenService.CreateToken(user);
-            return Ok(new
+
+            var response = new LoginResponseDto
             {
-                token,
-                user = new
+                Token = token,
+                User = new UserDto
                 {
-                    user.UserId,
-                    user.FirstName,
-                    user.LastName,
-                    user.Email,
-                    user.Role
+                    UserId = user.UserId,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    Role = user.Role
                 }
-            });
+            };
+
+            return Ok(response);
         }
 
         // ✅ Get all users (Admins only)
