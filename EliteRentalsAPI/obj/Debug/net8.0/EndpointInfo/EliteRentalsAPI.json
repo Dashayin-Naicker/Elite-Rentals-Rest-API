@@ -1,0 +1,4074 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EliteRentalsAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Invoice": {
+      "post": {
+        "tags": [
+          "Invoice"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "InvoiceId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "TenantId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.FirstName": {
+                    "type": "string"
+                  },
+                  "Tenant.LastName": {
+                    "type": "string"
+                  },
+                  "Tenant.Email": {
+                    "type": "string"
+                  },
+                  "Tenant.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Tenant.Role": {
+                    "type": "string"
+                  },
+                  "Tenant.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Tenant.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Tenant.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "LeaseId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.LeaseId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.ManagerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.Manager.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.Manager.FirstName": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.LastName": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.Email": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.Role": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Lease.Property.Title": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Description": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Address": {
+                    "type": "string"
+                  },
+                  "Lease.Property.City": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Province": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Country": {
+                    "type": "string"
+                  },
+                  "Lease.Property.RentAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Lease.Property.NumOfBedrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.NumOfBathrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.ParkingType": {
+                    "type": "string"
+                  },
+                  "Lease.Property.NumOfParkingSpots": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Property.PetFriendly": {
+                    "type": "boolean"
+                  },
+                  "Lease.Property.Status": {
+                    "type": "string"
+                  },
+                  "Lease.Property.ListingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Lease.Property.ImageData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "Lease.Property.ImageType": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Leases": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Lease"
+                    }
+                  },
+                  "Lease.TenantId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Tenant.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Lease.Tenant.FirstName": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.LastName": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.Email": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.Role": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Lease.Tenant.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Lease.StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Lease.EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Lease.Deposit": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Lease.Status": {
+                    "type": "string"
+                  },
+                  "Lease.DocumentData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "Lease.DocumentType": {
+                    "type": "string"
+                  },
+                  "Amount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "DueDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "PdfData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "PdfType": {
+                    "type": "string"
+                  },
+                  "pdf": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "InvoiceId": {
+                  "style": "form"
+                },
+                "TenantId": {
+                  "style": "form"
+                },
+                "Tenant.UserId": {
+                  "style": "form"
+                },
+                "Tenant.FirstName": {
+                  "style": "form"
+                },
+                "Tenant.LastName": {
+                  "style": "form"
+                },
+                "Tenant.Email": {
+                  "style": "form"
+                },
+                "Tenant.PasswordHash": {
+                  "style": "form"
+                },
+                "Tenant.Role": {
+                  "style": "form"
+                },
+                "Tenant.LanguagePreference": {
+                  "style": "form"
+                },
+                "Tenant.NotificationPreference": {
+                  "style": "form"
+                },
+                "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "LeaseId": {
+                  "style": "form"
+                },
+                "Lease.LeaseId": {
+                  "style": "form"
+                },
+                "Lease.PropertyId": {
+                  "style": "form"
+                },
+                "Lease.Property.PropertyId": {
+                  "style": "form"
+                },
+                "Lease.Property.ManagerId": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.UserId": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.FirstName": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.LastName": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.Email": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.PasswordHash": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.Role": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.LanguagePreference": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.NotificationPreference": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Lease.Property.Title": {
+                  "style": "form"
+                },
+                "Lease.Property.Description": {
+                  "style": "form"
+                },
+                "Lease.Property.Address": {
+                  "style": "form"
+                },
+                "Lease.Property.City": {
+                  "style": "form"
+                },
+                "Lease.Property.Province": {
+                  "style": "form"
+                },
+                "Lease.Property.Country": {
+                  "style": "form"
+                },
+                "Lease.Property.RentAmount": {
+                  "style": "form"
+                },
+                "Lease.Property.NumOfBedrooms": {
+                  "style": "form"
+                },
+                "Lease.Property.NumOfBathrooms": {
+                  "style": "form"
+                },
+                "Lease.Property.ParkingType": {
+                  "style": "form"
+                },
+                "Lease.Property.NumOfParkingSpots": {
+                  "style": "form"
+                },
+                "Lease.Property.PetFriendly": {
+                  "style": "form"
+                },
+                "Lease.Property.Status": {
+                  "style": "form"
+                },
+                "Lease.Property.ListingDate": {
+                  "style": "form"
+                },
+                "Lease.Property.ImageData": {
+                  "style": "form"
+                },
+                "Lease.Property.ImageType": {
+                  "style": "form"
+                },
+                "Lease.Property.Leases": {
+                  "style": "form"
+                },
+                "Lease.TenantId": {
+                  "style": "form"
+                },
+                "Lease.Tenant.UserId": {
+                  "style": "form"
+                },
+                "Lease.Tenant.FirstName": {
+                  "style": "form"
+                },
+                "Lease.Tenant.LastName": {
+                  "style": "form"
+                },
+                "Lease.Tenant.Email": {
+                  "style": "form"
+                },
+                "Lease.Tenant.PasswordHash": {
+                  "style": "form"
+                },
+                "Lease.Tenant.Role": {
+                  "style": "form"
+                },
+                "Lease.Tenant.LanguagePreference": {
+                  "style": "form"
+                },
+                "Lease.Tenant.NotificationPreference": {
+                  "style": "form"
+                },
+                "Lease.Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "Lease.StartDate": {
+                  "style": "form"
+                },
+                "Lease.EndDate": {
+                  "style": "form"
+                },
+                "Lease.Deposit": {
+                  "style": "form"
+                },
+                "Lease.Status": {
+                  "style": "form"
+                },
+                "Lease.DocumentData": {
+                  "style": "form"
+                },
+                "Lease.DocumentType": {
+                  "style": "form"
+                },
+                "Amount": {
+                  "style": "form"
+                },
+                "DueDate": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "PdfData": {
+                  "style": "form"
+                },
+                "PdfType": {
+                  "style": "form"
+                },
+                "pdf": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Invoice/tenant/{tenantId}": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Invoice"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Invoice/{id}": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Invoice"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Invoice/{id}/pdf": {
+      "get": {
+        "tags": [
+          "Invoice"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Invoice/{id}/status": {
+      "put": {
+        "tags": [
+          "Invoice"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Lease": {
+      "post": {
+        "tags": [
+          "Lease"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "LeaseId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ManagerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.FirstName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LastName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Email": {
+                    "type": "string"
+                  },
+                  "Property.Manager.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Role": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.Title": {
+                    "type": "string"
+                  },
+                  "Property.Description": {
+                    "type": "string"
+                  },
+                  "Property.Address": {
+                    "type": "string"
+                  },
+                  "Property.City": {
+                    "type": "string"
+                  },
+                  "Property.Province": {
+                    "type": "string"
+                  },
+                  "Property.Country": {
+                    "type": "string"
+                  },
+                  "Property.RentAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Property.NumOfBedrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.NumOfBathrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ParkingType": {
+                    "type": "string"
+                  },
+                  "Property.NumOfParkingSpots": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PetFriendly": {
+                    "type": "boolean"
+                  },
+                  "Property.Status": {
+                    "type": "string"
+                  },
+                  "Property.ListingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.ImageData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "Property.ImageType": {
+                    "type": "string"
+                  },
+                  "Property.Leases": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Lease"
+                    }
+                  },
+                  "TenantId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.FirstName": {
+                    "type": "string"
+                  },
+                  "Tenant.LastName": {
+                    "type": "string"
+                  },
+                  "Tenant.Email": {
+                    "type": "string"
+                  },
+                  "Tenant.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Tenant.Role": {
+                    "type": "string"
+                  },
+                  "Tenant.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Tenant.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Tenant.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Deposit": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "DocumentData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "DocumentType": {
+                    "type": "string"
+                  },
+                  "document": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "LeaseId": {
+                  "style": "form"
+                },
+                "PropertyId": {
+                  "style": "form"
+                },
+                "Property.PropertyId": {
+                  "style": "form"
+                },
+                "Property.ManagerId": {
+                  "style": "form"
+                },
+                "Property.Manager.UserId": {
+                  "style": "form"
+                },
+                "Property.Manager.FirstName": {
+                  "style": "form"
+                },
+                "Property.Manager.LastName": {
+                  "style": "form"
+                },
+                "Property.Manager.Email": {
+                  "style": "form"
+                },
+                "Property.Manager.PasswordHash": {
+                  "style": "form"
+                },
+                "Property.Manager.Role": {
+                  "style": "form"
+                },
+                "Property.Manager.LanguagePreference": {
+                  "style": "form"
+                },
+                "Property.Manager.NotificationPreference": {
+                  "style": "form"
+                },
+                "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Title": {
+                  "style": "form"
+                },
+                "Property.Description": {
+                  "style": "form"
+                },
+                "Property.Address": {
+                  "style": "form"
+                },
+                "Property.City": {
+                  "style": "form"
+                },
+                "Property.Province": {
+                  "style": "form"
+                },
+                "Property.Country": {
+                  "style": "form"
+                },
+                "Property.RentAmount": {
+                  "style": "form"
+                },
+                "Property.NumOfBedrooms": {
+                  "style": "form"
+                },
+                "Property.NumOfBathrooms": {
+                  "style": "form"
+                },
+                "Property.ParkingType": {
+                  "style": "form"
+                },
+                "Property.NumOfParkingSpots": {
+                  "style": "form"
+                },
+                "Property.PetFriendly": {
+                  "style": "form"
+                },
+                "Property.Status": {
+                  "style": "form"
+                },
+                "Property.ListingDate": {
+                  "style": "form"
+                },
+                "Property.ImageData": {
+                  "style": "form"
+                },
+                "Property.ImageType": {
+                  "style": "form"
+                },
+                "Property.Leases": {
+                  "style": "form"
+                },
+                "TenantId": {
+                  "style": "form"
+                },
+                "Tenant.UserId": {
+                  "style": "form"
+                },
+                "Tenant.FirstName": {
+                  "style": "form"
+                },
+                "Tenant.LastName": {
+                  "style": "form"
+                },
+                "Tenant.Email": {
+                  "style": "form"
+                },
+                "Tenant.PasswordHash": {
+                  "style": "form"
+                },
+                "Tenant.Role": {
+                  "style": "form"
+                },
+                "Tenant.LanguagePreference": {
+                  "style": "form"
+                },
+                "Tenant.NotificationPreference": {
+                  "style": "form"
+                },
+                "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "StartDate": {
+                  "style": "form"
+                },
+                "EndDate": {
+                  "style": "form"
+                },
+                "Deposit": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "DocumentData": {
+                  "style": "form"
+                },
+                "DocumentType": {
+                  "style": "form"
+                },
+                "document": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lease"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lease"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lease"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Lease"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lease"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lease"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lease"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lease/{id}": {
+      "get": {
+        "tags": [
+          "Lease"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lease"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lease"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lease"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Lease"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "LeaseId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ManagerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.FirstName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LastName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Email": {
+                    "type": "string"
+                  },
+                  "Property.Manager.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Role": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.Title": {
+                    "type": "string"
+                  },
+                  "Property.Description": {
+                    "type": "string"
+                  },
+                  "Property.Address": {
+                    "type": "string"
+                  },
+                  "Property.City": {
+                    "type": "string"
+                  },
+                  "Property.Province": {
+                    "type": "string"
+                  },
+                  "Property.Country": {
+                    "type": "string"
+                  },
+                  "Property.RentAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Property.NumOfBedrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.NumOfBathrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ParkingType": {
+                    "type": "string"
+                  },
+                  "Property.NumOfParkingSpots": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PetFriendly": {
+                    "type": "boolean"
+                  },
+                  "Property.Status": {
+                    "type": "string"
+                  },
+                  "Property.ListingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.ImageData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "Property.ImageType": {
+                    "type": "string"
+                  },
+                  "Property.Leases": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Lease"
+                    }
+                  },
+                  "TenantId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.FirstName": {
+                    "type": "string"
+                  },
+                  "Tenant.LastName": {
+                    "type": "string"
+                  },
+                  "Tenant.Email": {
+                    "type": "string"
+                  },
+                  "Tenant.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Tenant.Role": {
+                    "type": "string"
+                  },
+                  "Tenant.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Tenant.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Tenant.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "StartDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Deposit": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "DocumentData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "DocumentType": {
+                    "type": "string"
+                  },
+                  "document": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "LeaseId": {
+                  "style": "form"
+                },
+                "PropertyId": {
+                  "style": "form"
+                },
+                "Property.PropertyId": {
+                  "style": "form"
+                },
+                "Property.ManagerId": {
+                  "style": "form"
+                },
+                "Property.Manager.UserId": {
+                  "style": "form"
+                },
+                "Property.Manager.FirstName": {
+                  "style": "form"
+                },
+                "Property.Manager.LastName": {
+                  "style": "form"
+                },
+                "Property.Manager.Email": {
+                  "style": "form"
+                },
+                "Property.Manager.PasswordHash": {
+                  "style": "form"
+                },
+                "Property.Manager.Role": {
+                  "style": "form"
+                },
+                "Property.Manager.LanguagePreference": {
+                  "style": "form"
+                },
+                "Property.Manager.NotificationPreference": {
+                  "style": "form"
+                },
+                "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Title": {
+                  "style": "form"
+                },
+                "Property.Description": {
+                  "style": "form"
+                },
+                "Property.Address": {
+                  "style": "form"
+                },
+                "Property.City": {
+                  "style": "form"
+                },
+                "Property.Province": {
+                  "style": "form"
+                },
+                "Property.Country": {
+                  "style": "form"
+                },
+                "Property.RentAmount": {
+                  "style": "form"
+                },
+                "Property.NumOfBedrooms": {
+                  "style": "form"
+                },
+                "Property.NumOfBathrooms": {
+                  "style": "form"
+                },
+                "Property.ParkingType": {
+                  "style": "form"
+                },
+                "Property.NumOfParkingSpots": {
+                  "style": "form"
+                },
+                "Property.PetFriendly": {
+                  "style": "form"
+                },
+                "Property.Status": {
+                  "style": "form"
+                },
+                "Property.ListingDate": {
+                  "style": "form"
+                },
+                "Property.ImageData": {
+                  "style": "form"
+                },
+                "Property.ImageType": {
+                  "style": "form"
+                },
+                "Property.Leases": {
+                  "style": "form"
+                },
+                "TenantId": {
+                  "style": "form"
+                },
+                "Tenant.UserId": {
+                  "style": "form"
+                },
+                "Tenant.FirstName": {
+                  "style": "form"
+                },
+                "Tenant.LastName": {
+                  "style": "form"
+                },
+                "Tenant.Email": {
+                  "style": "form"
+                },
+                "Tenant.PasswordHash": {
+                  "style": "form"
+                },
+                "Tenant.Role": {
+                  "style": "form"
+                },
+                "Tenant.LanguagePreference": {
+                  "style": "form"
+                },
+                "Tenant.NotificationPreference": {
+                  "style": "form"
+                },
+                "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "StartDate": {
+                  "style": "form"
+                },
+                "EndDate": {
+                  "style": "form"
+                },
+                "Deposit": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "DocumentData": {
+                  "style": "form"
+                },
+                "DocumentType": {
+                  "style": "form"
+                },
+                "document": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lease"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Lease/{id}/document": {
+      "get": {
+        "tags": [
+          "Lease"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Maintenance": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "MaintenanceId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "TenantId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.FirstName": {
+                    "type": "string"
+                  },
+                  "Tenant.LastName": {
+                    "type": "string"
+                  },
+                  "Tenant.Email": {
+                    "type": "string"
+                  },
+                  "Tenant.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Tenant.Role": {
+                    "type": "string"
+                  },
+                  "Tenant.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Tenant.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Tenant.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ManagerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.FirstName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LastName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Email": {
+                    "type": "string"
+                  },
+                  "Property.Manager.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Role": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.Title": {
+                    "type": "string"
+                  },
+                  "Property.Description": {
+                    "type": "string"
+                  },
+                  "Property.Address": {
+                    "type": "string"
+                  },
+                  "Property.City": {
+                    "type": "string"
+                  },
+                  "Property.Province": {
+                    "type": "string"
+                  },
+                  "Property.Country": {
+                    "type": "string"
+                  },
+                  "Property.RentAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Property.NumOfBedrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.NumOfBathrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ParkingType": {
+                    "type": "string"
+                  },
+                  "Property.NumOfParkingSpots": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PetFriendly": {
+                    "type": "boolean"
+                  },
+                  "Property.Status": {
+                    "type": "string"
+                  },
+                  "Property.ListingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.ImageData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "Property.ImageType": {
+                    "type": "string"
+                  },
+                  "Property.Leases": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Lease"
+                    }
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Category": {
+                    "type": "string"
+                  },
+                  "Urgency": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "ProofData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "ProofType": {
+                    "type": "string"
+                  },
+                  "CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "UpdatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "proof": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "MaintenanceId": {
+                  "style": "form"
+                },
+                "TenantId": {
+                  "style": "form"
+                },
+                "Tenant.UserId": {
+                  "style": "form"
+                },
+                "Tenant.FirstName": {
+                  "style": "form"
+                },
+                "Tenant.LastName": {
+                  "style": "form"
+                },
+                "Tenant.Email": {
+                  "style": "form"
+                },
+                "Tenant.PasswordHash": {
+                  "style": "form"
+                },
+                "Tenant.Role": {
+                  "style": "form"
+                },
+                "Tenant.LanguagePreference": {
+                  "style": "form"
+                },
+                "Tenant.NotificationPreference": {
+                  "style": "form"
+                },
+                "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "PropertyId": {
+                  "style": "form"
+                },
+                "Property.PropertyId": {
+                  "style": "form"
+                },
+                "Property.ManagerId": {
+                  "style": "form"
+                },
+                "Property.Manager.UserId": {
+                  "style": "form"
+                },
+                "Property.Manager.FirstName": {
+                  "style": "form"
+                },
+                "Property.Manager.LastName": {
+                  "style": "form"
+                },
+                "Property.Manager.Email": {
+                  "style": "form"
+                },
+                "Property.Manager.PasswordHash": {
+                  "style": "form"
+                },
+                "Property.Manager.Role": {
+                  "style": "form"
+                },
+                "Property.Manager.LanguagePreference": {
+                  "style": "form"
+                },
+                "Property.Manager.NotificationPreference": {
+                  "style": "form"
+                },
+                "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Title": {
+                  "style": "form"
+                },
+                "Property.Description": {
+                  "style": "form"
+                },
+                "Property.Address": {
+                  "style": "form"
+                },
+                "Property.City": {
+                  "style": "form"
+                },
+                "Property.Province": {
+                  "style": "form"
+                },
+                "Property.Country": {
+                  "style": "form"
+                },
+                "Property.RentAmount": {
+                  "style": "form"
+                },
+                "Property.NumOfBedrooms": {
+                  "style": "form"
+                },
+                "Property.NumOfBathrooms": {
+                  "style": "form"
+                },
+                "Property.ParkingType": {
+                  "style": "form"
+                },
+                "Property.NumOfParkingSpots": {
+                  "style": "form"
+                },
+                "Property.PetFriendly": {
+                  "style": "form"
+                },
+                "Property.Status": {
+                  "style": "form"
+                },
+                "Property.ListingDate": {
+                  "style": "form"
+                },
+                "Property.ImageData": {
+                  "style": "form"
+                },
+                "Property.ImageType": {
+                  "style": "form"
+                },
+                "Property.Leases": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Category": {
+                  "style": "form"
+                },
+                "Urgency": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "ProofData": {
+                  "style": "form"
+                },
+                "ProofType": {
+                  "style": "form"
+                },
+                "CreatedAt": {
+                  "style": "form"
+                },
+                "UpdatedAt": {
+                  "style": "form"
+                },
+                "proof": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Maintenance"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Maintenance"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Maintenance"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Maintenance"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Maintenance"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Maintenance"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Maintenance"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Maintenance/{id}": {
+      "get": {
+        "tags": [
+          "Maintenance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Maintenance"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Maintenance"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Maintenance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Maintenance/{id}/proof": {
+      "get": {
+        "tags": [
+          "Maintenance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Maintenance/{id}/status": {
+      "put": {
+        "tags": [
+          "Maintenance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Message": {
+      "post": {
+        "tags": [
+          "Message"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Message"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Message"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Message"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Message/{id}": {
+      "get": {
+        "tags": [
+          "Message"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Message/conversation/{user1}/{user2}": {
+      "get": {
+        "tags": [
+          "Message"
+        ],
+        "parameters": [
+          {
+            "name": "user1",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "user2",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Message/inbox/{userId}": {
+      "get": {
+        "tags": [
+          "Message"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Notification": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notification"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notification"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Notification/user/{userId}": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notification"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Notification/{id}/read": {
+      "put": {
+        "tags": [
+          "Notification"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Payment": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "PaymentId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "TenantId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Tenant.FirstName": {
+                    "type": "string"
+                  },
+                  "Tenant.LastName": {
+                    "type": "string"
+                  },
+                  "Tenant.Email": {
+                    "type": "string"
+                  },
+                  "Tenant.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Tenant.Role": {
+                    "type": "string"
+                  },
+                  "Tenant.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Tenant.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Tenant.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Amount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Date": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "ProofData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "ProofType": {
+                    "type": "string"
+                  },
+                  "proof": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "PaymentId": {
+                  "style": "form"
+                },
+                "TenantId": {
+                  "style": "form"
+                },
+                "Tenant.UserId": {
+                  "style": "form"
+                },
+                "Tenant.FirstName": {
+                  "style": "form"
+                },
+                "Tenant.LastName": {
+                  "style": "form"
+                },
+                "Tenant.Email": {
+                  "style": "form"
+                },
+                "Tenant.PasswordHash": {
+                  "style": "form"
+                },
+                "Tenant.Role": {
+                  "style": "form"
+                },
+                "Tenant.LanguagePreference": {
+                  "style": "form"
+                },
+                "Tenant.NotificationPreference": {
+                  "style": "form"
+                },
+                "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "Amount": {
+                  "style": "form"
+                },
+                "Date": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "ProofData": {
+                  "style": "form"
+                },
+                "ProofType": {
+                  "style": "form"
+                },
+                "proof": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/tenant/{tenantId}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Payment"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/{id}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Payment"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/{id}/proof": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Payment/{id}/status": {
+      "put": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentalApplications": {
+      "post": {
+        "tags": [
+          "RentalApplications"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ApplicationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PropertyId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ManagerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.Manager.FirstName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LastName": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Email": {
+                    "type": "string"
+                  },
+                  "Property.Manager.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Property.Manager.Role": {
+                    "type": "string"
+                  },
+                  "Property.Manager.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Property.Manager.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.Title": {
+                    "type": "string"
+                  },
+                  "Property.Description": {
+                    "type": "string"
+                  },
+                  "Property.Address": {
+                    "type": "string"
+                  },
+                  "Property.City": {
+                    "type": "string"
+                  },
+                  "Property.Province": {
+                    "type": "string"
+                  },
+                  "Property.Country": {
+                    "type": "string"
+                  },
+                  "Property.RentAmount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Property.NumOfBedrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.NumOfBathrooms": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.ParkingType": {
+                    "type": "string"
+                  },
+                  "Property.NumOfParkingSpots": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Property.PetFriendly": {
+                    "type": "boolean"
+                  },
+                  "Property.Status": {
+                    "type": "string"
+                  },
+                  "Property.ListingDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Property.ImageData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "Property.ImageType": {
+                    "type": "string"
+                  },
+                  "Property.Leases": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Lease"
+                    }
+                  },
+                  "ApplicantName": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Status": {
+                    "type": "string"
+                  },
+                  "DocumentData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "DocumentType": {
+                    "type": "string"
+                  },
+                  "CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "document": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ApplicationId": {
+                  "style": "form"
+                },
+                "PropertyId": {
+                  "style": "form"
+                },
+                "Property.PropertyId": {
+                  "style": "form"
+                },
+                "Property.ManagerId": {
+                  "style": "form"
+                },
+                "Property.Manager.UserId": {
+                  "style": "form"
+                },
+                "Property.Manager.FirstName": {
+                  "style": "form"
+                },
+                "Property.Manager.LastName": {
+                  "style": "form"
+                },
+                "Property.Manager.Email": {
+                  "style": "form"
+                },
+                "Property.Manager.PasswordHash": {
+                  "style": "form"
+                },
+                "Property.Manager.Role": {
+                  "style": "form"
+                },
+                "Property.Manager.LanguagePreference": {
+                  "style": "form"
+                },
+                "Property.Manager.NotificationPreference": {
+                  "style": "form"
+                },
+                "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Title": {
+                  "style": "form"
+                },
+                "Property.Description": {
+                  "style": "form"
+                },
+                "Property.Address": {
+                  "style": "form"
+                },
+                "Property.City": {
+                  "style": "form"
+                },
+                "Property.Province": {
+                  "style": "form"
+                },
+                "Property.Country": {
+                  "style": "form"
+                },
+                "Property.RentAmount": {
+                  "style": "form"
+                },
+                "Property.NumOfBedrooms": {
+                  "style": "form"
+                },
+                "Property.NumOfBathrooms": {
+                  "style": "form"
+                },
+                "Property.ParkingType": {
+                  "style": "form"
+                },
+                "Property.NumOfParkingSpots": {
+                  "style": "form"
+                },
+                "Property.PetFriendly": {
+                  "style": "form"
+                },
+                "Property.Status": {
+                  "style": "form"
+                },
+                "Property.ListingDate": {
+                  "style": "form"
+                },
+                "Property.ImageData": {
+                  "style": "form"
+                },
+                "Property.ImageType": {
+                  "style": "form"
+                },
+                "Property.Leases": {
+                  "style": "form"
+                },
+                "ApplicantName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "DocumentData": {
+                  "style": "form"
+                },
+                "DocumentType": {
+                  "style": "form"
+                },
+                "CreatedAt": {
+                  "style": "form"
+                },
+                "document": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalApplication"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalApplication"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalApplication"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "RentalApplications"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RentalApplication"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RentalApplication"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RentalApplication"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RentalApplications/{id}": {
+      "get": {
+        "tags": [
+          "RentalApplications"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalApplication"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalApplication"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RentalApplication"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RentalApplications/{id}/document": {
+      "get": {
+        "tags": [
+          "RentalApplications"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/RentalApplications/{id}/status": {
+      "put": {
+        "tags": [
+          "RentalApplications"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RentalApplicationStatusDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RentalApplicationStatusDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RentalApplicationStatusDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Report": {
+      "post": {
+        "tags": [
+          "Report"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ReportId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ManagerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Manager.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Manager.FirstName": {
+                    "type": "string"
+                  },
+                  "Manager.LastName": {
+                    "type": "string"
+                  },
+                  "Manager.Email": {
+                    "type": "string"
+                  },
+                  "Manager.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Manager.Role": {
+                    "type": "string"
+                  },
+                  "Manager.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Manager.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Manager.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Type": {
+                    "type": "string"
+                  },
+                  "GeneratedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ReportData": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "FileType": {
+                    "type": "string"
+                  },
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ReportId": {
+                  "style": "form"
+                },
+                "ManagerId": {
+                  "style": "form"
+                },
+                "Manager.UserId": {
+                  "style": "form"
+                },
+                "Manager.FirstName": {
+                  "style": "form"
+                },
+                "Manager.LastName": {
+                  "style": "form"
+                },
+                "Manager.Email": {
+                  "style": "form"
+                },
+                "Manager.PasswordHash": {
+                  "style": "form"
+                },
+                "Manager.Role": {
+                  "style": "form"
+                },
+                "Manager.LanguagePreference": {
+                  "style": "form"
+                },
+                "Manager.NotificationPreference": {
+                  "style": "form"
+                },
+                "Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Type": {
+                  "style": "form"
+                },
+                "GeneratedAt": {
+                  "style": "form"
+                },
+                "ReportData": {
+                  "style": "form"
+                },
+                "FileType": {
+                  "style": "form"
+                },
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Report"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Report/{id}": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Report"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Report/{id}/file": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/signup": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/sso": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SsoLoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SsoLoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SsoLoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Invoice": {
+        "type": "object",
+        "properties": {
+          "invoiceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/User"
+          },
+          "leaseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lease": {
+            "$ref": "#/components/schemas/Lease"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "dueDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "pdfData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "pdfType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceStatusDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Lease": {
+        "type": "object",
+        "properties": {
+          "leaseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "property": {
+            "$ref": "#/components/schemas/Property"
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/User"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "deposit": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "documentType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Maintenance": {
+        "type": "object",
+        "properties": {
+          "maintenanceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/User"
+          },
+          "propertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "property": {
+            "$ref": "#/components/schemas/Property"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "urgency": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "proofData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "proofType": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaintenanceStatusDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Message": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "senderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sender": {
+            "$ref": "#/components/schemas/User"
+          },
+          "receiverId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "receiver": {
+            "$ref": "#/components/schemas/User"
+          },
+          "messageText": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isChatbot": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Notification": {
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isRead": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Payment": {
+        "type": "object",
+        "properties": {
+          "paymentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenantId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tenant": {
+            "$ref": "#/components/schemas/User"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "proofData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "proofType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentStatusDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Property": {
+        "type": "object",
+        "properties": {
+          "propertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "managerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "manager": {
+            "$ref": "#/components/schemas/User"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "rentAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "numOfBedrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numOfBathrooms": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parkingType": {
+            "type": "string",
+            "nullable": true
+          },
+          "numOfParkingSpots": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "petFriendly": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "listingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imageData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "imageType": {
+            "type": "string",
+            "nullable": true
+          },
+          "leases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Lease"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RentalApplication": {
+        "type": "object",
+        "properties": {
+          "applicationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "property": {
+            "$ref": "#/components/schemas/Property"
+          },
+          "applicantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "documentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RentalApplicationStatusDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Report": {
+        "type": "object",
+        "properties": {
+          "reportId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "managerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "manager": {
+            "$ref": "#/components/schemas/User"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reportData": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "fileType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SsoLoginDto": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "languagePreference": {
+            "type": "string",
+            "nullable": true
+          },
+          "notificationPreference": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
