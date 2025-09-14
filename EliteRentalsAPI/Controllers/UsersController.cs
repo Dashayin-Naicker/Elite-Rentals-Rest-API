@@ -25,16 +25,33 @@ namespace EliteRentalsAPI.Controllers
 
         // Register new user
         [HttpPost("signup")]
-        public async Task<IActionResult> Signup([FromBody] User user)
+        public async Task<IActionResult> Signup([FromBody] RegisterDto dto)
         {
-            if (await _ctx.Users.AnyAsync(x => x.Email == user.Email))
+            if (await _ctx.Users.AnyAsync(x => x.Email == dto.Email))
                 return Conflict(new { message = "Email already registered" });
 
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
+            var user = new User
+            {
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Email = dto.Email,
+                Role = dto.Role,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password) // hash clean password
+            };
+
             _ctx.Users.Add(user);
             await _ctx.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = user.UserId }, user);
+
+            return CreatedAtAction(nameof(GetById), new { id = user.UserId }, new
+            {
+                user.UserId,
+                user.FirstName,
+                user.LastName,
+                user.Email,
+                user.Role
+            });
         }
+
 
         // Login with email + password (return JWT)
         [HttpPost("login")]

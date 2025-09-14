@@ -3910,17 +3910,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/RegisterDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/RegisterDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/RegisterDto"
               }
             }
           }
@@ -4525,6 +4525,32 @@
         "type": "object",
         "properties": {
           "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
             "type": "string",
             "nullable": true
           }

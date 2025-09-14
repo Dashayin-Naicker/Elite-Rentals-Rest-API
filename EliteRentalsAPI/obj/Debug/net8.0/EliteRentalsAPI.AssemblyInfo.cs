@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EliteRentalsAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be60d25517062a7fd8dc19e1bc9ab8035c198b0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7184dcea738e398987ed4194a28a9b6a614ea7be")]
 [assembly: System.Reflection.AssemblyProductAttribute("EliteRentalsAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EliteRentalsAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

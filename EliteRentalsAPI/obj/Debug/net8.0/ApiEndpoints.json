@@ -2766,8 +2766,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "EliteRentalsAPI.Models.User",
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.RegisterDto",
         "IsRequired": true
       }
     ],
