@@ -13,7 +13,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public LeaseController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Create lease
+        // Create lease
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
         public async Task<ActionResult<Lease>> Create([FromForm] Lease lease, IFormFile? document)
@@ -30,13 +30,13 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = lease.LeaseId }, lease);
         }
 
-        // ✅ Get all leases
+        // Get all leases
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Lease>>> GetAll() =>
             await _ctx.Leases.ToListAsync();
 
-        // ✅ Get lease by ID
+        // Get lease by ID
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Lease>> Get(int id)
@@ -46,7 +46,7 @@ namespace EliteRentalsAPI.Controllers
             return lease;
         }
 
-        // ✅ Download lease document
+        // Download lease document
         [Authorize]
         [HttpGet("{id:int}/document")]
         public async Task<IActionResult> GetDocument(int id)
@@ -56,7 +56,7 @@ namespace EliteRentalsAPI.Controllers
             return File(lease.DocumentData, lease.DocumentType ?? "application/pdf", $"lease_{id}.pdf");
         }
 
-        // ✅ Update lease
+        // Update lease
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromForm] Lease updated, IFormFile? document)
@@ -81,7 +81,7 @@ namespace EliteRentalsAPI.Controllers
             return NoContent();
         }
 
-        // ✅ Delete lease
+        // Delete lease
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)

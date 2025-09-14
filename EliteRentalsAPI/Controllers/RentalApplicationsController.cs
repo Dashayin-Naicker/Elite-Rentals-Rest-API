@@ -14,7 +14,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public RentalApplicationsController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Submit rental application (public)
+        // Submit rental application (public)
         [HttpPost]
         public async Task<ActionResult<RentalApplication>> Create([FromForm] RentalApplication app, IFormFile? document)
         {
@@ -30,13 +30,13 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = app.ApplicationId }, app);
         }
 
-        // ✅ Get all applications (PropertyManagers/Admin only)
+        // Get all applications (PropertyManagers/Admin only)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RentalApplication>>> GetAll() =>
             await _ctx.Applications.ToListAsync();
 
-        // ✅ Get one application
+        // Get one application
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<RentalApplication>> Get(int id)
@@ -46,7 +46,7 @@ namespace EliteRentalsAPI.Controllers
             return app;
         }
 
-        // ✅ Download application document
+        // Download application document
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet("{id:int}/document")]
         public async Task<IActionResult> GetDocument(int id)
@@ -56,7 +56,7 @@ namespace EliteRentalsAPI.Controllers
             return File(app.DocumentData, app.DocumentType ?? "application/octet-stream", $"application_{id}.pdf");
         }
 
-        // ✅ Approve/Reject
+        // Approve/Reject
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}/status")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] RentalApplicationStatusDto dto)

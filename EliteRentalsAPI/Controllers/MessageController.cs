@@ -13,7 +13,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public MessageController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Send message
+        // Send message
         [Authorize]
         [HttpPost]
         public async Task<ActionResult<Message>> Send(Message msg)
@@ -23,7 +23,7 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
         }
 
-        // ✅ Get message by ID
+        // Get message by ID
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Message>> GetById(int id)
@@ -33,7 +33,7 @@ namespace EliteRentalsAPI.Controllers
             return m;
         }
 
-        // ✅ Get conversation between two users
+        // Get conversation between two users
         [Authorize]
         [HttpGet("conversation/{user1:int}/{user2:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetConversation(int user1, int user2)
@@ -45,7 +45,7 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
-        // ✅ Get all messages for a user (inbox)
+        // Get all messages for a user (inbox)
         [Authorize]
         [HttpGet("inbox/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetInbox(int userId)

@@ -23,7 +23,7 @@ namespace EliteRentalsAPI.Controllers
             _tokenService = tokenService;
         }
 
-        // ✅ Register new user
+        // Register new user
         [HttpPost("signup")]
         public async Task<IActionResult> Signup([FromBody] User user)
         {
@@ -36,7 +36,7 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(GetById), new { id = user.UserId }, user);
         }
 
-        // ✅ Login with email + password → return JWT
+        // Login with email + password (return JWT)
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
@@ -62,13 +62,13 @@ namespace EliteRentalsAPI.Controllers
             return Ok(response);
         }
 
-        // ✅ Get all users (Admins only)
+        // Get all users (Admins only)
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetAll() =>
             await _ctx.Users.ToListAsync();
 
-        // ✅ Get specific user
+        // Get specific user
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<User>> GetById(int id)
@@ -78,7 +78,7 @@ namespace EliteRentalsAPI.Controllers
             return u;
         }
 
-        // ✅ Update user (self or admin)
+        // Update user (self or admin)
         [Authorize]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] User updated)
@@ -99,7 +99,7 @@ namespace EliteRentalsAPI.Controllers
             return NoContent();
         }
 
-        // ✅ Delete user
+        // Delete user
         [Authorize(Roles = "Admin")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
@@ -119,11 +119,10 @@ namespace EliteRentalsAPI.Controllers
             public string Password { get; set; } = "";
         }
 
-        // Inside UsersController.cs
         [HttpPost("sso")]
         public async Task<IActionResult> SsoLogin([FromBody] SsoLoginDto dto)
         {
-            // 1. Verify external token (stubbed for now)
+            // 1. Verify external token 
             bool valid = await VerifyExternalToken(dto.Provider, dto.Token);
             if (!valid) return Unauthorized(new { message = "Invalid SSO token" });
 
@@ -147,16 +146,6 @@ namespace EliteRentalsAPI.Controllers
             return Ok(new { token, user });
         }
 
-        // DTO for SSO
-        public class SsoLoginDto
-        {
-            public string Provider { get; set; } = "";   // e.g. "Google"
-            public string Token { get; set; } = "";      // Google ID token
-            public string Email { get; set; } = "";
-            public string FirstName { get; set; } = "";
-            public string LastName { get; set; } = "";
-            public string? Role { get; set; }
-        }
 
         // Stub token verification
         private async Task<bool> VerifyExternalToken(string provider, string token)

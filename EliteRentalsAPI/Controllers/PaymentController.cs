@@ -14,7 +14,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public PaymentController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Submit payment (tenant)
+        // Submit payment (tenant)
         [Authorize(Roles = "Tenant")]
         [HttpPost]
         public async Task<ActionResult<Payment>> Create([FromForm] Payment payment, IFormFile? proof)
@@ -32,19 +32,19 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = payment.PaymentId }, payment);
         }
 
-        // ✅ Get all payments (Admin/Manager only)
+        // Get all payments (Admin/Manager only)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Payment>>> GetAll() =>
             await _ctx.Payments.ToListAsync();
 
-        // ✅ Get tenant payments
+        // Get tenant payments
         [Authorize(Roles = "Tenant")]
         [HttpGet("tenant/{tenantId:int}")]
         public async Task<ActionResult<IEnumerable<Payment>>> GetTenantPayments(int tenantId) =>
             await _ctx.Payments.Where(p => p.TenantId == tenantId).ToListAsync();
 
-        // ✅ Get single payment
+        // Get single payment
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Payment>> Get(int id)
@@ -54,7 +54,7 @@ namespace EliteRentalsAPI.Controllers
             return p;
         }
 
-        // ✅ Download proof of payment
+        // Download proof of payment
         [Authorize]
         [HttpGet("{id:int}/proof")]
         public async Task<IActionResult> GetProof(int id)
@@ -64,7 +64,7 @@ namespace EliteRentalsAPI.Controllers
             return File(p.ProofData, p.ProofType ?? "application/octet-stream", $"payment_{id}_proof");
         }
 
-        // ✅ Approve/Reject payment
+        // Approve/Reject payment
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}/status")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] PaymentStatusDto dto)

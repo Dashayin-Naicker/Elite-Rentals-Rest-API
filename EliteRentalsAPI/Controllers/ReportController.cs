@@ -13,7 +13,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public ReportController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Generate report (upload generated file)
+        // Generate report (upload generated file)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
         public async Task<ActionResult<Report>> Create([FromForm] Report report, IFormFile? file)
@@ -30,13 +30,13 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = report.ReportId }, report);
         }
 
-        // ✅ Get all reports
+        // Get all reports
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Report>>> GetAll() =>
             await _ctx.Reports.ToListAsync();
 
-        // ✅ Get report by ID
+        // Get report by ID
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Report>> Get(int id)
@@ -46,7 +46,7 @@ namespace EliteRentalsAPI.Controllers
             return r;
         }
 
-        // ✅ Download report file
+        // Download report file
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet("{id:int}/file")]
         public async Task<IActionResult> GetFile(int id)

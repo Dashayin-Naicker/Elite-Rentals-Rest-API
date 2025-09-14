@@ -13,7 +13,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public NotificationController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Create notification (system use)
+        // Create notification (system use)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
         public async Task<ActionResult<Notification>> Create(Notification n)
@@ -23,7 +23,7 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(GetByUser), new { userId = n.UserId }, n);
         }
 
-        // ✅ Get notifications for a user
+        // Get notifications for a user
         [Authorize]
         [HttpGet("user/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Notification>>> GetByUser(int userId) =>
@@ -32,7 +32,7 @@ namespace EliteRentalsAPI.Controllers
                 .OrderByDescending(n => n.Date)
                 .ToListAsync();
 
-        // ✅ Mark as read
+        // Mark as read
         [Authorize]
         [HttpPut("{id:int}/read")]
         public async Task<IActionResult> MarkAsRead(int id)

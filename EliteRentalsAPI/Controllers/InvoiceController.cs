@@ -14,7 +14,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public InvoiceController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Create invoice (Admin/Manager only)
+        // Create invoice (Admin/Manager only)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
         public async Task<ActionResult<Invoice>> Create([FromForm] Invoice invoice, IFormFile? pdf)
@@ -31,19 +31,19 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = invoice.InvoiceId }, invoice);
         }
 
-        // ✅ Get all invoices (Admin/Manager)
+        // Get all invoices (Admin/Manager)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Invoice>>> GetAll() =>
             await _ctx.Invoices.ToListAsync();
 
-        // ✅ Get tenant’s invoices
+        // Get tenant’s invoices
         [Authorize(Roles = "Tenant")]
         [HttpGet("tenant/{tenantId:int}")]
         public async Task<ActionResult<IEnumerable<Invoice>>> GetTenantInvoices(int tenantId) =>
             await _ctx.Invoices.Where(i => i.TenantId == tenantId).ToListAsync();
 
-        // ✅ Get single invoice
+        // Get single invoice
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Invoice>> Get(int id)
@@ -53,7 +53,7 @@ namespace EliteRentalsAPI.Controllers
             return inv;
         }
 
-        // ✅ Download invoice PDF
+        // Download invoice PDF
         [Authorize]
         [HttpGet("{id:int}/pdf")]
         public async Task<IActionResult> GetPdf(int id)
@@ -63,7 +63,7 @@ namespace EliteRentalsAPI.Controllers
             return File(inv.PdfData, inv.PdfType ?? "application/pdf", $"invoice_{id}.pdf");
         }
 
-        // ✅ Update invoice status
+        // Update invoice status
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}/status")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] InvoiceStatusDto dto)

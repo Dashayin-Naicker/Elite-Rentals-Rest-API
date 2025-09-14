@@ -14,7 +14,7 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public MaintenanceController(AppDbContext ctx) { _ctx = ctx; }
 
-        // ✅ Tenant creates request
+        // Tenant creates request
         [Authorize(Roles = "Tenant")]
         [HttpPost]
         public async Task<ActionResult<Maintenance>> Create([FromForm] Maintenance request, IFormFile? proof)
@@ -31,13 +31,13 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = request.MaintenanceId }, request);
         }
 
-        // ✅ Get all requests (Manager/Caretaker)
+        // Get all requests (Manager/Caretaker)
         [Authorize(Roles = "Admin,PropertyManager,Caretaker")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Maintenance>>> GetAll() =>
             await _ctx.Maintenance.ToListAsync();
 
-        // ✅ Get by ID
+        // Get by ID
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Maintenance>> Get(int id)
@@ -47,7 +47,7 @@ namespace EliteRentalsAPI.Controllers
             return m;
         }
 
-        // ✅ Download proof image
+        // Download proof image
         [Authorize]
         [HttpGet("{id:int}/proof")]
         public async Task<IActionResult> GetProof(int id)
@@ -57,7 +57,7 @@ namespace EliteRentalsAPI.Controllers
             return File(m.ProofData, m.ProofType ?? "image/jpeg", $"maintenance_{id}_proof");
         }
 
-        // ✅ Update status (Caretaker/Manager)
+        // Update status (Caretaker/Manager)
         [Authorize(Roles = "Admin,PropertyManager,Caretaker")]
         [HttpPut("{id:int}/status")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] MaintenanceStatusDto dto)
