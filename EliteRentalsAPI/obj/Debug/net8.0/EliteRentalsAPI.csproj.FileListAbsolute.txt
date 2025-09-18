@@ -547,3 +547,8 @@ C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\E
 C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\obj\Debug\net8.0\EliteRentalsAPI.pdb
 C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\obj\Debug\net8.0\EliteRentalsAPI.genruntimeconfig.cache
 C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\obj\Debug\net8.0\ref\EliteRentalsAPI.dll
+C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\System.Management.dll
+C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll

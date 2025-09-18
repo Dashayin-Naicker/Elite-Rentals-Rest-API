@@ -1,4 +1,5 @@
 
+using EliteRentalsAPI.Config;
 using EliteRentalsAPI.Data;
 using EliteRentalsAPI.Services;
 using Microsoft.EntityFrameworkCore;
@@ -26,8 +27,13 @@ namespace EliteRentalsAPI
                 )
             );
 
+            // Bind Google auth settings (so you can inject it instead of _config)
+            builder.Services.Configure<GoogleAuthConfig>(
+                builder.Configuration.GetSection("Authentication:Google"));
+
             // JWT Auth
             builder.Services.AddScoped<TokenService>();
+            builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
             builder.Services.AddCors(opt => {
                 opt.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
