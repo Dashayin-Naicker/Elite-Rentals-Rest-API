@@ -63,6 +63,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "LeaseId",
         "Type": "System.Int32",
         "IsRequired": false
@@ -130,6 +140,16 @@
       {
         "Name": "Lease.Property.Manager.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -265,6 +285,16 @@
       {
         "Name": "Lease.Tenant.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -523,6 +553,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Property.Title",
         "Type": "System.String",
         "IsRequired": false
@@ -655,6 +695,16 @@
       {
         "Name": "Tenant.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -830,6 +880,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Property.Title",
         "Type": "System.String",
         "IsRequired": false
@@ -962,6 +1022,16 @@
       {
         "Name": "Tenant.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1098,6 +1168,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "PropertyId",
         "Type": "System.Int32",
         "IsRequired": false
@@ -1155,6 +1235,16 @@
       {
         "Name": "Property.Manager.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1624,6 +1714,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Tenant.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Amount",
         "Type": "System.Decimal",
         "IsRequired": false
@@ -1836,6 +1936,16 @@
       {
         "Name": "Manager.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -2056,6 +2166,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -2272,6 +2392,16 @@
       {
         "Name": "Property.Manager.CreatedAt",
         "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -2559,6 +2689,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Manager.IsActive",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Type",
         "Type": "System.String",
         "IsRequired": false
@@ -2660,6 +2800,37 @@
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "update",
+        "Type": "EliteRentalsAPI.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
     "Method": "GetById",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "GET",
@@ -2683,6 +2854,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "ChangeStatus",
+    "RelativePath": "api/Users/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.UsersController",

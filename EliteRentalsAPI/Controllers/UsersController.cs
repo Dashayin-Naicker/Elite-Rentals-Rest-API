@@ -82,6 +82,58 @@ namespace EliteRentalsAPI.Controllers
             });
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _ctx.Users
+                .Select(u => new UserDto
+                {
+                    UserId = u.UserId,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    Email = u.Email,
+                    Role = u.Role,
+                    IsActive = u.IsActive,
+                    TenantApproval = u.TenantApproval
+                })
+                .ToListAsync();
+
+            return Ok(users);
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] User update)
+        {
+            var user = await _ctx.Users.FindAsync(id);
+            if (user == null) return NotFound();
+
+            user.FirstName = update.FirstName;
+            user.LastName = update.LastName;
+            user.Email = update.Email;
+            user.Role = update.Role;
+            user.TenantApproval = update.TenantApproval;
+
+            await _ctx.SaveChangesAsync();
+            return Ok(user);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPatch("{id:int}/status")]
+        public async Task<IActionResult> ChangeStatus(int id)
+        {
+            var user = await _ctx.Users.FindAsync(id);
+            if (user == null) return NotFound();
+
+            user.IsActive = !user.IsActive;
+            await _ctx.SaveChangesAsync();
+
+            return Ok(new { message = $"User {(user.IsActive ? "enabled" : "disabled")}" });
+        }
+
+
         // ✅ Google SSO
         [HttpPost("sso")]
         public async Task<IActionResult> SsoLogin([FromBody] SsoLoginDto dto)

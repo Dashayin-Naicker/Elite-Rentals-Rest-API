@@ -53,6 +53,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Tenant.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Tenant.TenantApproval": {
+                    "type": "string"
+                  },
                   "LeaseId": {
                     "type": "integer",
                     "format": "int32"
@@ -101,6 +107,12 @@
                   "Lease.Property.Manager.CreatedAt": {
                     "type": "string",
                     "format": "date-time"
+                  },
+                  "Lease.Property.Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Lease.Property.Manager.TenantApproval": {
+                    "type": "string"
                   },
                   "Lease.Property.Title": {
                     "type": "string"
@@ -195,6 +207,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Lease.Tenant.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Lease.Tenant.TenantApproval": {
+                    "type": "string"
+                  },
                   "Lease.StartDate": {
                     "type": "string",
                     "format": "date-time"
@@ -275,6 +293,12 @@
                 "Tenant.CreatedAt": {
                   "style": "form"
                 },
+                "Tenant.IsActive": {
+                  "style": "form"
+                },
+                "Tenant.TenantApproval": {
+                  "style": "form"
+                },
                 "LeaseId": {
                   "style": "form"
                 },
@@ -315,6 +339,12 @@
                   "style": "form"
                 },
                 "Lease.Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.IsActive": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Lease.Property.Title": {
@@ -396,6 +426,12 @@
                   "style": "form"
                 },
                 "Lease.Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "Lease.Tenant.IsActive": {
+                  "style": "form"
+                },
+                "Lease.Tenant.TenantApproval": {
                   "style": "form"
                 },
                 "Lease.StartDate": {
@@ -708,6 +744,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Property.Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Property.Manager.TenantApproval": {
+                    "type": "string"
+                  },
                   "Property.Title": {
                     "type": "string"
                   },
@@ -801,6 +843,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Tenant.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Tenant.TenantApproval": {
+                    "type": "string"
+                  },
                   "StartDate": {
                     "type": "string",
                     "format": "date-time"
@@ -867,6 +915,12 @@
                   "style": "form"
                 },
                 "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Manager.IsActive": {
+                  "style": "form"
+                },
+                "Property.Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Property.Title": {
@@ -948,6 +1002,12 @@
                   "style": "form"
                 },
                 "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "Tenant.IsActive": {
+                  "style": "form"
+                },
+                "Tenant.TenantApproval": {
                   "style": "form"
                 },
                 "StartDate": {
@@ -1140,6 +1200,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Property.Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Property.Manager.TenantApproval": {
+                    "type": "string"
+                  },
                   "Property.Title": {
                     "type": "string"
                   },
@@ -1233,6 +1299,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Tenant.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Tenant.TenantApproval": {
+                    "type": "string"
+                  },
                   "StartDate": {
                     "type": "string",
                     "format": "date-time"
@@ -1299,6 +1371,12 @@
                   "style": "form"
                 },
                 "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Manager.IsActive": {
+                  "style": "form"
+                },
+                "Property.Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Property.Title": {
@@ -1380,6 +1458,12 @@
                   "style": "form"
                 },
                 "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "Tenant.IsActive": {
+                  "style": "form"
+                },
+                "Tenant.TenantApproval": {
                   "style": "form"
                 },
                 "StartDate": {
@@ -1506,6 +1590,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Tenant.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Tenant.TenantApproval": {
+                    "type": "string"
+                  },
                   "PropertyId": {
                     "type": "integer",
                     "format": "int32"
@@ -1546,6 +1636,12 @@
                   "Property.Manager.CreatedAt": {
                     "type": "string",
                     "format": "date-time"
+                  },
+                  "Property.Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Property.Manager.TenantApproval": {
+                    "type": "string"
                   },
                   "Property.Title": {
                     "type": "string"
@@ -1674,6 +1770,12 @@
                 "Tenant.CreatedAt": {
                   "style": "form"
                 },
+                "Tenant.IsActive": {
+                  "style": "form"
+                },
+                "Tenant.TenantApproval": {
+                  "style": "form"
+                },
                 "PropertyId": {
                   "style": "form"
                 },
@@ -1708,6 +1810,12 @@
                   "style": "form"
                 },
                 "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Manager.IsActive": {
+                  "style": "form"
+                },
+                "Property.Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Property.Title": {
@@ -2320,6 +2428,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Tenant.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Tenant.TenantApproval": {
+                    "type": "string"
+                  },
                   "Amount": {
                     "type": "number",
                     "format": "double"
@@ -2376,6 +2490,12 @@
                   "style": "form"
                 },
                 "Tenant.CreatedAt": {
+                  "style": "form"
+                },
+                "Tenant.IsActive": {
+                  "style": "form"
+                },
+                "Tenant.TenantApproval": {
                   "style": "form"
                 },
                 "Amount": {
@@ -2662,6 +2782,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Manager.TenantApproval": {
+                    "type": "string"
+                  },
                   "Title": {
                     "type": "string"
                   },
@@ -2760,6 +2886,12 @@
                   "style": "form"
                 },
                 "Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Manager.IsActive": {
+                  "style": "form"
+                },
+                "Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Title": {
@@ -2977,6 +3109,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Manager.TenantApproval": {
+                    "type": "string"
+                  },
                   "Title": {
                     "type": "string"
                   },
@@ -3075,6 +3213,12 @@
                   "style": "form"
                 },
                 "Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Manager.IsActive": {
+                  "style": "form"
+                },
+                "Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Title": {
@@ -3284,6 +3428,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Property.Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Property.Manager.TenantApproval": {
+                    "type": "string"
+                  },
                   "Property.Title": {
                     "type": "string"
                   },
@@ -3411,6 +3561,12 @@
                   "style": "form"
                 },
                 "Property.Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Property.Manager.IsActive": {
+                  "style": "form"
+                },
+                "Property.Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Property.Title": {
@@ -3705,6 +3861,12 @@
                     "type": "string",
                     "format": "date-time"
                   },
+                  "Manager.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Manager.TenantApproval": {
+                    "type": "string"
+                  },
                   "Type": {
                     "type": "string"
                   },
@@ -3757,6 +3919,12 @@
                   "style": "form"
                 },
                 "Manager.CreatedAt": {
+                  "style": "form"
+                },
+                "Manager.IsActive": {
+                  "style": "form"
+                },
+                "Manager.TenantApproval": {
                   "style": "form"
                 },
                 "Type": {
@@ -3963,26 +4131,49 @@
         }
       }
     },
-    "/api/Users/sso": {
-      "post": {
+    "/api/Users": {
+      "get": {
         "tags": [
           "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SsoLoginDto"
+                "$ref": "#/components/schemas/User"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/SsoLoginDto"
+                "$ref": "#/components/schemas/User"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/SsoLoginDto"
+                "$ref": "#/components/schemas/User"
               }
             }
           }
@@ -3992,9 +4183,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Users/{id}": {
+      },
       "get": {
         "tags": [
           "Users"
@@ -4030,6 +4219,60 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/status": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/sso": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SsoLoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SsoLoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SsoLoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -4616,6 +4859,13 @@
           "createdAt": {
             "type": "string",
             "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          },
+          "tenantApproval": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

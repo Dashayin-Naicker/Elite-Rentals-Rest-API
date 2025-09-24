@@ -14,6 +14,9 @@ namespace EliteRentalsAPI.Models
         public string LanguagePreference { get; set; } = "en";
         public string NotificationPreference { get; set; } = "push";
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public bool IsActive { get; set; } = true;  // default active
+        public string? TenantApproval { get; set; } = "Pending"; // for tenants only
     }
 }
 
