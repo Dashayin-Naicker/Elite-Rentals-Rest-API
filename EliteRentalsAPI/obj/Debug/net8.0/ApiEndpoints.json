@@ -1884,71 +1884,6 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "PropertyId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ManagerId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.UserId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.FirstName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.LastName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.PasswordHash",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.Role",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.LanguagePreference",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.NotificationPreference",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.CreatedAt",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.IsActive",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.TenantApproval",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -2014,26 +1949,6 @@
         "IsRequired": false
       },
       {
-        "Name": "ListingDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "ImageData",
-        "Type": "System.Byte[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "ImageType",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Leases",
-        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.Lease, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": false
-      },
-      {
         "Name": "image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
@@ -2061,7 +1976,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Property, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.DTOs.PropertyReadDto, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

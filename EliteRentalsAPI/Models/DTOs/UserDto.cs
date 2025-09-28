@@ -8,6 +8,8 @@
         public string Email { get; set; }
         public string Role { get; set; }
 
+        public int ManagerId { get; set; }
+
         public bool IsActive { get; set; }
         public string? TenantApproval { get; set; }
     }
