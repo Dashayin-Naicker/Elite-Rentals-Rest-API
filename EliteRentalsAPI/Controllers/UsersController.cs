@@ -82,7 +82,7 @@ namespace EliteRentalsAPI.Controllers
             });
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -103,7 +103,7 @@ namespace EliteRentalsAPI.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] User update)
         {
@@ -120,7 +120,7 @@ namespace EliteRentalsAPI.Controllers
             return Ok(user);
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPatch("{id:int}/status")]
         public async Task<IActionResult> ChangeStatus(int id)
         {

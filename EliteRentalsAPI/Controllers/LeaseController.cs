@@ -13,28 +13,60 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public LeaseController(AppDbContext ctx) { _ctx = ctx; }
 
-        // Create lease
+        // Create lease from JSON
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
-        public async Task<ActionResult<Lease>> Create([FromForm] Lease lease, IFormFile? document)
+        public async Task<ActionResult<Lease>> Create([FromBody] Lease lease)
         {
-            if (document != null)
-            {
-                using var ms = new MemoryStream();
-                await document.CopyToAsync(ms);
-                lease.DocumentData = ms.ToArray();
-                lease.DocumentType = document.ContentType;
-            }
+            // Optional: server-side PDF generation here
+            // e.g., GenerateLeasePdf(lease);
+
+            lease.StartDate = DateTime.SpecifyKind(lease.StartDate, DateTimeKind.Utc);
+            lease.EndDate = DateTime.SpecifyKind(lease.EndDate, DateTimeKind.Utc);
+
             _ctx.Leases.Add(lease);
             await _ctx.SaveChangesAsync();
             return CreatedAtAction(nameof(Get), new { id = lease.LeaseId }, lease);
         }
 
         // Get all leases
-        [Authorize(Roles = "Admin,PropertyManager")]
+        [Authorize(Roles = "Admin,PropertyManager,Tenant")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Lease>>> GetAll() =>
-            await _ctx.Leases.ToListAsync();
+        public async Task<ActionResult<IEnumerable<object>>> GetAll()
+        {
+            var leases = await _ctx.Leases
+                .Include(l => l.Property)
+                .Include(l => l.Tenant)
+                .Select(l => new
+                {
+                    l.LeaseId,
+                    l.PropertyId,
+                    Property = l.Property == null ? null : new
+                    {
+                        l.Property.PropertyId,
+                        l.Property.Title,
+                        l.Property.Description,
+                        l.Property.RentAmount
+                    },
+                    l.TenantId,
+                    Tenant = l.Tenant == null ? null : new
+                    {
+                        l.Tenant.UserId,
+                        l.Tenant.FirstName,
+                        l.Tenant.LastName,
+                        l.Tenant.Email
+                    },
+                    l.StartDate,
+                    l.EndDate,
+                    l.Deposit,
+                    l.Status,
+                    l.DocumentData,
+                    l.DocumentType
+                }).ToListAsync();
+
+            return Ok(leases);
+        }
+
 
         // Get lease by ID
         [Authorize]
@@ -56,10 +88,10 @@ namespace EliteRentalsAPI.Controllers
             return File(lease.DocumentData, lease.DocumentType ?? "application/pdf", $"lease_{id}.pdf");
         }
 
-        // Update lease
+        // Update lease from JSON
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, [FromForm] Lease updated, IFormFile? document)
+        public async Task<IActionResult> Update(int id, [FromBody] Lease updated)
         {
             var lease = await _ctx.Leases.FindAsync(id);
             if (lease == null) return NotFound();
@@ -68,14 +100,6 @@ namespace EliteRentalsAPI.Controllers
             lease.EndDate = updated.EndDate;
             lease.Deposit = updated.Deposit;
             lease.Status = updated.Status;
-
-            if (document != null)
-            {
-                using var ms = new MemoryStream();
-                await document.CopyToAsync(ms);
-                lease.DocumentData = ms.ToArray();
-                lease.DocumentType = document.ContentType;
-            }
 
             await _ctx.SaveChangesAsync();
             return NoContent();
@@ -92,5 +116,12 @@ namespace EliteRentalsAPI.Controllers
             await _ctx.SaveChangesAsync();
             return NoContent();
         }
+
+        // Example: Server-side PDF generation (optional)
+        // private void GenerateLeasePdf(Lease lease)
+        // {
+        //     // Use iTextSharp, PdfSharp, or any library to generate PDF
+        //     // Save to database or filesystem if needed
+        // }
     }
 }
