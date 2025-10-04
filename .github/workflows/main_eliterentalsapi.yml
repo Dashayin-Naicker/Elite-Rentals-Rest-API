@@ -43,22 +43,20 @@ jobs:
           name: .net-app
           path: ${{ env.PUBLISH_DIR }}
 
-deploy:
-  runs-on: windows-latest
-  needs: build
+  deploy:                    # <-- must be indented under jobs:
+    runs-on: windows-latest
+    needs: build
 
-  steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: .net-app
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: .net-app
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v3
-      with:
-        app-name: 'EliteRentalsAPI'
-        slot-name: 'Production'
-        package: './.net-app'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CEDD55153C2C45AC82D124DD9CB2C590 }}
-
-
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'EliteRentalsAPI'
+          slot-name: 'Production'
+          package: './.net-app'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CEDD55153C2C45AC82D124DD9CB2C590 }}
