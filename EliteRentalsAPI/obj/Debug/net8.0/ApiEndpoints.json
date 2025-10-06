@@ -1159,68 +1159,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "PaymentId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
         "Name": "TenantId",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.UserId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.FirstName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.LastName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.PasswordHash",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.Role",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.LanguagePreference",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.NotificationPreference",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.CreatedAt",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.IsActive",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "Tenant.TenantApproval",
-        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1231,21 +1171,6 @@
       {
         "Name": "Date",
         "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "Status",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "ProofData",
-        "Type": "System.Byte[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "ProofType",
-        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -2269,6 +2194,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Users/{id}/password",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.UsersController",

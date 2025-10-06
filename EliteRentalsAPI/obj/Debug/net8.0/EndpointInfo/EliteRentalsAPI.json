@@ -1739,48 +1739,9 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "PaymentId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
                   "TenantId": {
                     "type": "integer",
                     "format": "int32"
-                  },
-                  "Tenant.UserId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Tenant.FirstName": {
-                    "type": "string"
-                  },
-                  "Tenant.LastName": {
-                    "type": "string"
-                  },
-                  "Tenant.Email": {
-                    "type": "string"
-                  },
-                  "Tenant.PasswordHash": {
-                    "type": "string"
-                  },
-                  "Tenant.Role": {
-                    "type": "string"
-                  },
-                  "Tenant.LanguagePreference": {
-                    "type": "string"
-                  },
-                  "Tenant.NotificationPreference": {
-                    "type": "string"
-                  },
-                  "Tenant.CreatedAt": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "Tenant.IsActive": {
-                    "type": "boolean"
-                  },
-                  "Tenant.TenantApproval": {
-                    "type": "string"
                   },
                   "Amount": {
                     "type": "number",
@@ -1790,16 +1751,6 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "Status": {
-                    "type": "string"
-                  },
-                  "ProofData": {
-                    "type": "string",
-                    "format": "byte"
-                  },
-                  "ProofType": {
-                    "type": "string"
-                  },
                   "proof": {
                     "type": "string",
                     "format": "binary"
@@ -1807,58 +1758,13 @@
                 }
               },
               "encoding": {
-                "PaymentId": {
-                  "style": "form"
-                },
                 "TenantId": {
-                  "style": "form"
-                },
-                "Tenant.UserId": {
-                  "style": "form"
-                },
-                "Tenant.FirstName": {
-                  "style": "form"
-                },
-                "Tenant.LastName": {
-                  "style": "form"
-                },
-                "Tenant.Email": {
-                  "style": "form"
-                },
-                "Tenant.PasswordHash": {
-                  "style": "form"
-                },
-                "Tenant.Role": {
-                  "style": "form"
-                },
-                "Tenant.LanguagePreference": {
-                  "style": "form"
-                },
-                "Tenant.NotificationPreference": {
-                  "style": "form"
-                },
-                "Tenant.CreatedAt": {
-                  "style": "form"
-                },
-                "Tenant.IsActive": {
-                  "style": "form"
-                },
-                "Tenant.TenantApproval": {
                   "style": "form"
                 },
                 "Amount": {
                   "style": "form"
                 },
                 "Date": {
-                  "style": "form"
-                },
-                "Status": {
-                  "style": "form"
-                },
-                "ProofData": {
-                  "style": "form"
-                },
-                "ProofType": {
                   "style": "form"
                 },
                 "proof": {
@@ -3460,6 +3366,48 @@
         }
       }
     },
+    "/api/Users/{id}/password": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Users/{id}/status": {
       "patch": {
         "tags": [
@@ -3517,6 +3465,20 @@
   },
   "components": {
     "schemas": {
+      "ChangePasswordDto": {
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Invoice": {
         "type": "object",
         "properties": {

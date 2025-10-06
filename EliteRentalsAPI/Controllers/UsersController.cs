@@ -120,6 +120,24 @@ namespace EliteRentalsAPI.Controllers
             return Ok(user);
         }
 
+        [Authorize]
+        [HttpPatch("{id:int}/password")]
+        public async Task<IActionResult> ChangePassword(int id, [FromBody] ChangePasswordDto dto)
+        {
+            var user = await _ctx.Users.FindAsync(id);
+            if (user == null) return NotFound();
+
+            if (!BCrypt.Net.BCrypt.Verify(dto.CurrentPassword, user.PasswordHash))
+                return BadRequest(new { message = "Current password is incorrect" });
+
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            await _ctx.SaveChangesAsync();
+
+            return Ok(new { message = "Password updated successfully" });
+        }
+
+
+
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPatch("{id:int}/status")]
         public async Task<IActionResult> ChangeStatus(int id)
