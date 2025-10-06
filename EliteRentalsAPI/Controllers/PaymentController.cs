@@ -15,10 +15,18 @@ namespace EliteRentalsAPI.Controllers
         public PaymentController(AppDbContext ctx) { _ctx = ctx; }
 
         // Submit payment (tenant)
-        [Authorize(Roles = "Tenant")]
         [HttpPost]
-        public async Task<ActionResult<Payment>> Create([FromForm] Payment payment, IFormFile? proof)
+        [Authorize(Roles = "Tenant")]
+        public async Task<ActionResult<Payment>> Create([FromForm] PaymentCreateDto dto, IFormFile? proof)
         {
+            var payment = new Payment
+            {
+                TenantId = dto.TenantId,
+                Amount = dto.Amount,
+                Date = dto.Date,
+                Status = "Pending"
+            };
+
             if (proof != null)
             {
                 using var ms = new MemoryStream();
@@ -26,11 +34,12 @@ namespace EliteRentalsAPI.Controllers
                 payment.ProofData = ms.ToArray();
                 payment.ProofType = proof.ContentType;
             }
-            payment.Status = "Pending"; // default
+
             _ctx.Payments.Add(payment);
             await _ctx.SaveChangesAsync();
             return CreatedAtAction(nameof(Get), new { id = payment.PaymentId }, payment);
         }
+
 
         // Get all payments (Admin/Manager only)
         [Authorize(Roles = "Admin,PropertyManager")]
