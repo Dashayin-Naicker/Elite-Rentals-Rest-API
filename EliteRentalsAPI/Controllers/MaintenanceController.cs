@@ -70,5 +70,24 @@ namespace EliteRentalsAPI.Controllers
             await _ctx.SaveChangesAsync();
             return NoContent();
         }
+
+        // Get all requests for the current tenant
+        [Authorize(Roles = "Tenant")]
+        [HttpGet("my-requests")]
+        public async Task<ActionResult<IEnumerable<Maintenance>>> GetTenantRequests()
+        {
+            var tenantIdClaim = User.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+            if (tenantIdClaim == null || !int.TryParse(tenantIdClaim, out int tenantId))
+                return Unauthorized();
+
+            var tenantRequests = await _ctx.Maintenance
+                .Where(m => m.TenantId == tenantId)
+                .OrderByDescending(m => m.CreatedAt)
+                .ToListAsync();
+
+            return Ok(tenantRequests);
+
+        }
+
     }
 }

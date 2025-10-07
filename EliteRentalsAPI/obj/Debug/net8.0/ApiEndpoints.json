@@ -974,6 +974,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "GetTenantRequests",
+    "RelativePath": "api/Maintenance/my-requests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Maintenance, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
     "Method": "Send",
     "RelativePath": "api/Message",
