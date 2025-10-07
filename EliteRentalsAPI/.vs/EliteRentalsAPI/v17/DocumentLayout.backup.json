@@ -234,8 +234,7 @@
               "RelativeToolTip": "Controllers\\UsersController.cs",
               "ViewState": "AgIAAHIAAAAAAAAAAAAQwIkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T10:44:41.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T10:44:41.544Z"
             },
             {
               "$type": "Document",
@@ -245,7 +244,7 @@
               "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
               "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MaintenanceController.cs",
               "RelativeToolTip": "Controllers\\MaintenanceController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAswFgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAswFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-08T14:28:23.959Z",
               "EditorCaption": ""
@@ -260,8 +259,7 @@
               "RelativeToolTip": "Models\\DTOs\\MaintenanceStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T15:50:20.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T15:50:20.655Z"
             },
             {
               "$type": "Document",
@@ -273,8 +271,7 @@
               "RelativeToolTip": "Models\\Maintenance.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAiwBYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:19:23.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:19:23.005Z"
             },
             {
               "$type": "Document",
