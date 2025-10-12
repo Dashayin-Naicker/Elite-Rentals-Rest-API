@@ -16,6 +16,10 @@ namespace EliteRentalsAPI.Models
         public int PropertyId { get; set; }
         public Property? Property { get; set; }
 
+        [ForeignKey("Caretaker")]
+        public int? AssignedCaretakerId { get; set; }
+        public User? Caretaker { get; set; }
+
         public string Description { get; set; } = "";
         public string Category { get; set; } = "";
         public string Urgency { get; set; } = "Low";

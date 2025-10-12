@@ -34,15 +34,26 @@ namespace EliteRentalsAPI.Controllers
         // Get all requests (Manager/Caretaker)
         [Authorize(Roles = "Admin,PropertyManager,Caretaker")]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Maintenance>>> GetAll() =>
-            await _ctx.Maintenance.ToListAsync();
+        public async Task<ActionResult<IEnumerable<Maintenance>>> GetAll()
+        {
+            return await _ctx.Maintenance
+                .Include(m => m.Property)
+                .Include(m => m.Tenant)
+                .Include(m => m.Caretaker)
+                .ToListAsync();
+        }
 
         // Get by ID
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Maintenance>> Get(int id)
         {
-            var m = await _ctx.Maintenance.FindAsync(id);
+            var m = await _ctx.Maintenance
+                .Include(m => m.Property)
+                .Include(m => m.Tenant)
+                .Include(m => m.Caretaker)
+                .FirstOrDefaultAsync(x => x.MaintenanceId == id);
+
             if (m == null) return NotFound();
             return m;
         }
@@ -89,6 +100,27 @@ namespace EliteRentalsAPI.Controllers
             return Ok(tenantRequests);
 
         }
+
+        // Update caretaker assignment (Manager/Admin)
+        [Authorize(Roles = "Admin,PropertyManager")]
+        [HttpPut("{id:int}/assign-caretaker")]
+        public async Task<IActionResult> AssignCaretaker(int id, [FromBody] AssignCaretakerDto dto)
+        {
+            var m = await _ctx.Maintenance.FindAsync(id);
+            if (m == null)
+                return NotFound(new { message = "Maintenance request not found." });
+
+            var caretaker = await _ctx.Users.FindAsync(dto.AssignedCaretakerId);
+            if (caretaker == null || caretaker.Role != "Caretaker")
+                return BadRequest(new { message = "Invalid caretaker ID." });
+
+            m.AssignedCaretakerId = dto.AssignedCaretakerId;
+            m.UpdatedAt = DateTime.UtcNow;
+            await _ctx.SaveChangesAsync();
+
+            return Ok(new { message = "Caretaker assigned successfully." });
+        }
+
 
     }
 }

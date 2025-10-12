@@ -13,13 +13,11 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public LeaseController(AppDbContext ctx) { _ctx = ctx; }
 
-        // Create lease from JSON
+        // Create lease
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
         public async Task<ActionResult<Lease>> Create([FromBody] Lease lease)
         {
-            // Optional: server-side PDF generation here
-            // e.g., GenerateLeasePdf(lease);
 
             lease.StartDate = DateTime.SpecifyKind(lease.StartDate, DateTimeKind.Utc);
             lease.EndDate = DateTime.SpecifyKind(lease.EndDate, DateTimeKind.Utc);
