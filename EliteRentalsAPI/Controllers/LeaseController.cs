@@ -101,10 +101,11 @@ namespace EliteRentalsAPI.Controllers
                     return NotFound($"Lease with ID {id} not found.");
 
                 // ✅ Update only scalar fields (not navigation properties)
-                lease.StartDate = updated.StartDate;
-                lease.EndDate = updated.EndDate;
+                lease.StartDate = DateTime.SpecifyKind(updated.StartDate, DateTimeKind.Utc);
+                lease.EndDate = DateTime.SpecifyKind(updated.EndDate, DateTimeKind.Utc);
                 lease.Deposit = updated.Deposit;
                 lease.Status = updated.Status;
+
 
                 // Prevent EF from thinking related entities changed
                 _ctx.Entry(lease).Reference(l => l.Property).IsModified = false;
