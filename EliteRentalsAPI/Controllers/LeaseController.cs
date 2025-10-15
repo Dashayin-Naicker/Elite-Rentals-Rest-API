@@ -91,17 +91,41 @@ namespace EliteRentalsAPI.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Update(int id, [FromBody] Lease updated)
         {
-            var lease = await _ctx.Leases.FindAsync(id);
-            if (lease == null) return NotFound();
+            if (updated == null)
+                return BadRequest("Invalid request body — lease data missing.");
 
-            lease.StartDate = updated.StartDate;
-            lease.EndDate = updated.EndDate;
-            lease.Deposit = updated.Deposit;
-            lease.Status = updated.Status;
+            try
+            {
+                var lease = await _ctx.Leases.FindAsync(id);
+                if (lease == null)
+                    return NotFound($"Lease with ID {id} not found.");
 
-            await _ctx.SaveChangesAsync();
-            return NoContent();
+                // ✅ Update only scalar fields (not navigation properties)
+                lease.StartDate = updated.StartDate;
+                lease.EndDate = updated.EndDate;
+                lease.Deposit = updated.Deposit;
+                lease.Status = updated.Status;
+
+                // Prevent EF from thinking related entities changed
+                _ctx.Entry(lease).Reference(l => l.Property).IsModified = false;
+                _ctx.Entry(lease).Reference(l => l.Tenant).IsModified = false;
+
+                await _ctx.SaveChangesAsync();
+
+                return NoContent();
+            }
+            catch (DbUpdateException dbEx)
+            {
+                // Handles SQL constraint errors (e.g., FK violations)
+                return StatusCode(500, $"Database update failed: {dbEx.InnerException?.Message ?? dbEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                // General fallback for unexpected issues
+                return StatusCode(500, $"Server error: {ex.Message}");
+            }
         }
+
 
         // Delete lease
         [Authorize(Roles = "Admin,PropertyManager")]

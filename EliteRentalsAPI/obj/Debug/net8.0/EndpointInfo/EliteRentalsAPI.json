@@ -1051,6 +1051,45 @@
                       "$ref": "#/components/schemas/Lease"
                     }
                   },
+                  "AssignedCaretakerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Caretaker.UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Caretaker.FirstName": {
+                    "type": "string"
+                  },
+                  "Caretaker.LastName": {
+                    "type": "string"
+                  },
+                  "Caretaker.Email": {
+                    "type": "string"
+                  },
+                  "Caretaker.PasswordHash": {
+                    "type": "string"
+                  },
+                  "Caretaker.Role": {
+                    "type": "string"
+                  },
+                  "Caretaker.LanguagePreference": {
+                    "type": "string"
+                  },
+                  "Caretaker.NotificationPreference": {
+                    "type": "string"
+                  },
+                  "Caretaker.CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Caretaker.IsActive": {
+                    "type": "boolean"
+                  },
+                  "Caretaker.TenantApproval": {
+                    "type": "string"
+                  },
                   "Description": {
                     "type": "string"
                   },
@@ -1215,6 +1254,42 @@
                   "style": "form"
                 },
                 "Property.Leases": {
+                  "style": "form"
+                },
+                "AssignedCaretakerId": {
+                  "style": "form"
+                },
+                "Caretaker.UserId": {
+                  "style": "form"
+                },
+                "Caretaker.FirstName": {
+                  "style": "form"
+                },
+                "Caretaker.LastName": {
+                  "style": "form"
+                },
+                "Caretaker.Email": {
+                  "style": "form"
+                },
+                "Caretaker.PasswordHash": {
+                  "style": "form"
+                },
+                "Caretaker.Role": {
+                  "style": "form"
+                },
+                "Caretaker.LanguagePreference": {
+                  "style": "form"
+                },
+                "Caretaker.NotificationPreference": {
+                  "style": "form"
+                },
+                "Caretaker.CreatedAt": {
+                  "style": "form"
+                },
+                "Caretaker.IsActive": {
+                  "style": "form"
+                },
+                "Caretaker.TenantApproval": {
                   "style": "form"
                 },
                 "Description": {
@@ -1447,6 +1522,48 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Maintenance/{id}/assign-caretaker": {
+      "put": {
+        "tags": [
+          "Maintenance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignCaretakerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignCaretakerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignCaretakerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -3503,6 +3620,16 @@
   },
   "components": {
     "schemas": {
+      "AssignCaretakerDto": {
+        "type": "object",
+        "properties": {
+          "assignedCaretakerId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "ChangePasswordDto": {
         "type": "object",
         "properties": {
@@ -3655,6 +3782,14 @@
           },
           "property": {
             "$ref": "#/components/schemas/Property"
+          },
+          "assignedCaretakerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "caretaker": {
+            "$ref": "#/components/schemas/User"
           },
           "description": {
             "type": "string",
