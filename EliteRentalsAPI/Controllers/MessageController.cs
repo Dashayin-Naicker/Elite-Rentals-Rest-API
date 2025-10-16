@@ -55,5 +55,17 @@ namespace EliteRentalsAPI.Controllers
                 .OrderByDescending(m => m.Timestamp)
                 .ToListAsync();
         }
+
+        // Get all messages sent by a user
+        [Authorize]
+        [HttpGet("sent/{userId:int}")]
+        public async Task<ActionResult<IEnumerable<Message>>> GetSent(int userId)
+        {
+            return await _ctx.Messages
+                .Where(m => m.SenderId == userId)
+                .OrderByDescending(m => m.Timestamp)
+                .ToListAsync();
+        }
+
     }
 }
