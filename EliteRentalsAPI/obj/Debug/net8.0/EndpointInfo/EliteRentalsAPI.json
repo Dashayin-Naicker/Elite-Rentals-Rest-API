@@ -1812,6 +1812,54 @@
         }
       }
     },
+    "/api/Message/broadcast": {
+      "post": {
+        "tags": [
+          "Message"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Message"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Message"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Message"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Message"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Notification": {
       "post": {
         "tags": [
@@ -3925,7 +3973,8 @@
           },
           "receiverId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "receiver": {
             "$ref": "#/components/schemas/User"
@@ -3940,6 +3989,13 @@
           },
           "isChatbot": {
             "type": "boolean"
+          },
+          "isBroadcast": {
+            "type": "boolean"
+          },
+          "targetRole": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

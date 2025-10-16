@@ -67,5 +67,20 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
+        [Authorize]
+        [HttpPost("broadcast")]
+        public async Task<ActionResult<Message>> SendBroadcast([FromBody] Message msg)
+        {
+            msg.IsBroadcast = true;
+            msg.ReceiverId = null;
+            msg.Timestamp = DateTime.UtcNow;
+
+            _ctx.Messages.Add(msg);
+            await _ctx.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
+        }
+
+
     }
 }

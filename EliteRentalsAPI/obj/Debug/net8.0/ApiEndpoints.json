@@ -1128,6 +1128,32 @@
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "SendBroadcast",
+    "RelativePath": "api/Message/broadcast",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "msg",
+        "Type": "EliteRentalsAPI.Models.Message",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EliteRentalsAPI.Models.Message",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
     "Method": "GetConversation",
     "RelativePath": "api/Message/conversation/{user1}/{user2}",
     "HttpMethod": "GET",
