@@ -81,6 +81,24 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
         }
 
+        [Authorize]
+        [HttpGet("announcements/{userId:int}")]
+        public async Task<ActionResult<IEnumerable<Message>>> GetAnnouncements(int userId)
+        {
+            var user = await _ctx.Users.FindAsync(userId);
+            if (user == null) return NotFound();
+
+            var role = user.Role;
+
+            var announcements = await _ctx.Messages
+                .Where(m => m.IsBroadcast &&
+                            (m.TargetRole == null || m.TargetRole == role))
+                .OrderByDescending(m => m.Timestamp)
+                .ToListAsync();
+
+            return announcements;
+        }
+
 
     }
 }

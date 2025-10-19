@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\dtos\\paymentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -210,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "LeaseController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\LeaseController.cs",
               "RelativeDocumentMoniker": "Controllers\\LeaseController.cs",
@@ -218,12 +218,11 @@
               "RelativeToolTip": "Controllers\\LeaseController.cs",
               "ViewState": "AgIAAEsAAAAAAAAAAAAIwGsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T10:53:30.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T10:53:30.087Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ReportController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
@@ -231,25 +230,24 @@
               "RelativeToolTip": "Controllers\\ReportController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:32:46.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T14:32:46.663Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 1,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAL8AAAAAAAAAAAAwwMwAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAqwNIAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-08T10:44:41.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Lease.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Lease.cs",
               "RelativeDocumentMoniker": "Models\\Lease.cs",
@@ -257,12 +255,11 @@
               "RelativeToolTip": "Models\\Lease.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:18:13.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:18:13.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Report.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Report.cs",
               "RelativeDocumentMoniker": "Models\\Report.cs",
@@ -270,8 +267,7 @@
               "RelativeToolTip": "Models\\Report.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:20:28.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:20:28.061Z"
             },
             {
               "$type": "Document",
@@ -281,14 +277,14 @@
               "RelativeDocumentMoniker": "Controllers\\MessageController.cs",
               "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MessageController.cs",
               "RelativeToolTip": "Controllers\\MessageController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAAEgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAzwGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-08T14:31:14.087Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Message.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Message.cs",
               "RelativeDocumentMoniker": "Models\\Message.cs",
@@ -296,12 +292,11 @@
               "RelativeToolTip": "Models\\Message.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:20:06.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:20:06.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Maintenance.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Maintenance.cs",
               "RelativeDocumentMoniker": "Models\\Maintenance.cs",
@@ -309,12 +304,11 @@
               "RelativeToolTip": "Models\\Maintenance.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwBgAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:19:23.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:19:23.005Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "PropertyController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\PropertyController.cs",
               "RelativeDocumentMoniker": "Controllers\\PropertyController.cs",
@@ -322,12 +316,11 @@
               "RelativeToolTip": "Controllers\\PropertyController.cs",
               "ViewState": "AgIAAJMAAAAAAAAAAAAIwKwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T10:26:24.998Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T10:26:24.998Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MaintenanceController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MaintenanceController.cs",
               "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
@@ -335,12 +328,11 @@
               "RelativeToolTip": "Controllers\\MaintenanceController.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAowCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:28:23.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T14:28:23.959Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "InvoiceController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\InvoiceController.cs",
               "RelativeDocumentMoniker": "Controllers\\InvoiceController.cs",
@@ -348,12 +340,11 @@
               "RelativeToolTip": "Controllers\\InvoiceController.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAADwv08AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:23:08.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T14:23:08.315Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "Controllers\\PaymentController.cs",
@@ -361,8 +352,7 @@
               "RelativeToolTip": "Controllers\\PaymentController.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAswDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:24:31.44Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T14:24:31.44Z"
             },
             {
               "$type": "Document",
@@ -374,8 +364,7 @@
               "RelativeToolTip": "Models\\DTOs\\PaymentCreateDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T11:50:22.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T11:50:22.271Z"
             },
             {
               "$type": "Document",
@@ -387,8 +376,7 @@
               "RelativeToolTip": "Models\\Payment.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:18:59.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:18:59.376Z"
             },
             {
               "$type": "Document",
@@ -400,8 +388,7 @@
               "RelativeToolTip": "Models\\DTOs\\PropertyUploadDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T13:11:57.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T13:11:57.058Z"
             },
             {
               "$type": "Document",
@@ -413,8 +400,7 @@
               "RelativeToolTip": "Models\\DTOs\\LoginResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T19:18:42.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T19:18:42.843Z"
             },
             {
               "$type": "Document",
@@ -426,8 +412,7 @@
               "RelativeToolTip": "Services\\TokenService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAUwA8AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:28:47.763Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:28:47.763Z"
             },
             {
               "$type": "Document",
@@ -439,8 +424,7 @@
               "RelativeToolTip": "Config\\GoogleAuthConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-18T09:33:04.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T09:33:04.304Z"
             },
             {
               "$type": "Document",
@@ -452,8 +436,7 @@
               "RelativeToolTip": "Models\\DTOs\\PropertyReadDto.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA0wB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T18:46:26.393Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T18:46:26.393Z"
             },
             {
               "$type": "Document",
@@ -465,8 +448,7 @@
               "RelativeToolTip": "Models\\Property.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:17:25.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:17:25.867Z"
             },
             {
               "$type": "Document",
@@ -478,8 +460,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:16:36.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:16:36.913Z"
             },
             {
               "$type": "Document",
@@ -491,8 +472,7 @@
               "RelativeToolTip": "Models\\DTOs\\PropertyStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T10:30:38.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T10:30:38.458Z"
             },
             {
               "$type": "Document",
@@ -504,8 +484,7 @@
               "RelativeToolTip": "Models\\DTOs\\MaintenanceStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T15:50:20.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T15:50:20.655Z"
             },
             {
               "$type": "Document",
@@ -517,8 +496,7 @@
               "RelativeToolTip": "Migrations\\20251012145026_AddAssignedCaretakerToMaintenance.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T14:50:26.5Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T14:50:26.5Z"
             },
             {
               "$type": "Document",
@@ -530,8 +508,7 @@
               "RelativeToolTip": "Models\\DTOs\\AssignedCaretakerDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T12:55:33.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T12:55:33.638Z"
             },
             {
               "$type": "Document",
@@ -543,8 +520,7 @@
               "RelativeToolTip": "Models\\DTOs\\ApplicationStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T15:56:09.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T15:56:09.105Z"
             },
             {
               "$type": "Document",
@@ -556,8 +532,7 @@
               "RelativeToolTip": "Controllers\\RentalApplicationsController.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAowEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T10:51:27.31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T10:51:27.31Z"
             },
             {
               "$type": "Document",
@@ -569,8 +544,7 @@
               "RelativeToolTip": "Models\\DTOs\\ChangePasswordDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T12:45:37.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T12:45:37.645Z"
             },
             {
               "$type": "Document",
@@ -582,8 +556,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAIwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:13:43.245Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:13:43.245Z"
             },
             {
               "$type": "Document",
@@ -595,8 +568,7 @@
               "RelativeToolTip": "Controllers\\NotificationController.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA7wDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:29:32.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T14:29:32.841Z"
             },
             {
               "$type": "Document",
@@ -608,8 +580,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-07T15:15:20.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:15:20.054Z"
             },
             {
               "$type": "Document",
@@ -621,8 +592,7 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAABQAAAAAAAAAAABRwCcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-08T19:39:42.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T19:39:42.829Z"
             },
             {
               "$type": "Document",
@@ -634,8 +604,7 @@
               "RelativeToolTip": "Models\\DTOs\\UserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T19:19:14.63Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T19:19:14.63Z"
             },
             {
               "$type": "Document",
@@ -647,8 +616,7 @@
               "RelativeToolTip": "Models\\DTOs\\RegisterDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T15:44:09.579Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T15:44:09.579Z"
             },
             {
               "$type": "Document",
@@ -660,8 +628,7 @@
               "RelativeToolTip": "Models\\DTOs\\SsoLoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-14T10:36:57.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-14T10:36:57.097Z"
             },
             {
               "$type": "Document",
@@ -673,8 +640,7 @@
               "RelativeToolTip": "Migrations\\20250924121731_UpdateUserModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T12:17:31.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T12:17:31.412Z"
             },
             {
               "$type": "Document",
@@ -686,8 +652,7 @@
               "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
               "ViewState": "AgIAAKAAAAAAAAAAAAAQwK0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T20:12:13.156Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T20:12:13.156Z"
             },
             {
               "$type": "Document",
@@ -699,8 +664,7 @@
               "RelativeToolTip": "Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:25:33.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:25:33.805Z"
             },
             {
               "$type": "Document",
@@ -712,8 +676,7 @@
               "RelativeToolTip": "Models\\DTOs\\PaymentStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T15:55:36.969Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T15:55:36.969Z"
             },
             {
               "$type": "Document",
@@ -725,8 +688,7 @@
               "RelativeToolTip": "Models\\DTOs\\InvoiceStatusDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T15:49:46.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-08T15:49:46.769Z"
             },
             {
               "$type": "Document",
@@ -738,8 +700,7 @@
               "RelativeToolTip": "Models\\Invoice.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAYwBYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:18:36.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:18:36.322Z"
             },
             {
               "$type": "Document",
@@ -751,8 +712,7 @@
               "RelativeToolTip": "Models\\RentalApplication.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAuwBQAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:17:52.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:17:52.361Z"
             },
             {
               "$type": "Document",
@@ -764,8 +724,7 @@
               "RelativeToolTip": "Models\\Notification.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:19:47.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:19:47.196Z"
             },
             {
               "$type": "Document",
@@ -777,8 +736,7 @@
               "RelativeToolTip": "Migrations\\20250907195440_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T19:54:40.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T19:54:40.861Z"
             },
             {
               "$type": "Document",
@@ -790,8 +748,7 @@
               "RelativeToolTip": "EliteRentalsAPI.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-09-07T15:15:24.278Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-07T15:15:24.278Z"
             }
           ]
         },
