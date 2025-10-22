@@ -60,6 +60,9 @@ namespace EliteRentalsAPI
 
             builder.Services.AddAuthorization();
 
+            builder.Services.AddSingleton<FcmService>();
+
+
 
             var app = builder.Build();
 

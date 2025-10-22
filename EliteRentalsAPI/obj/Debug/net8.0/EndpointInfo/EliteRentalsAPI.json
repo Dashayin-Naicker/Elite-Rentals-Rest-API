@@ -59,6 +59,9 @@
                   "Tenant.TenantApproval": {
                     "type": "string"
                   },
+                  "Tenant.FcmToken": {
+                    "type": "string"
+                  },
                   "LeaseId": {
                     "type": "integer",
                     "format": "int32"
@@ -112,6 +115,9 @@
                     "type": "boolean"
                   },
                   "Lease.Property.Manager.TenantApproval": {
+                    "type": "string"
+                  },
+                  "Lease.Property.Manager.FcmToken": {
                     "type": "string"
                   },
                   "Lease.Property.Title": {
@@ -213,6 +219,9 @@
                   "Lease.Tenant.TenantApproval": {
                     "type": "string"
                   },
+                  "Lease.Tenant.FcmToken": {
+                    "type": "string"
+                  },
                   "Lease.StartDate": {
                     "type": "string",
                     "format": "date-time"
@@ -299,6 +308,9 @@
                 "Tenant.TenantApproval": {
                   "style": "form"
                 },
+                "Tenant.FcmToken": {
+                  "style": "form"
+                },
                 "LeaseId": {
                   "style": "form"
                 },
@@ -345,6 +357,9 @@
                   "style": "form"
                 },
                 "Lease.Property.Manager.TenantApproval": {
+                  "style": "form"
+                },
+                "Lease.Property.Manager.FcmToken": {
                   "style": "form"
                 },
                 "Lease.Property.Title": {
@@ -432,6 +447,9 @@
                   "style": "form"
                 },
                 "Lease.Tenant.TenantApproval": {
+                  "style": "form"
+                },
+                "Lease.Tenant.FcmToken": {
                   "style": "form"
                 },
                 "Lease.StartDate": {
@@ -944,6 +962,9 @@
                   "Tenant.TenantApproval": {
                     "type": "string"
                   },
+                  "Tenant.FcmToken": {
+                    "type": "string"
+                  },
                   "PropertyId": {
                     "type": "integer",
                     "format": "int32"
@@ -989,6 +1010,9 @@
                     "type": "boolean"
                   },
                   "Property.Manager.TenantApproval": {
+                    "type": "string"
+                  },
+                  "Property.Manager.FcmToken": {
                     "type": "string"
                   },
                   "Property.Title": {
@@ -1090,6 +1114,9 @@
                   "Caretaker.TenantApproval": {
                     "type": "string"
                   },
+                  "Caretaker.FcmToken": {
+                    "type": "string"
+                  },
                   "Description": {
                     "type": "string"
                   },
@@ -1163,6 +1190,9 @@
                 "Tenant.TenantApproval": {
                   "style": "form"
                 },
+                "Tenant.FcmToken": {
+                  "style": "form"
+                },
                 "PropertyId": {
                   "style": "form"
                 },
@@ -1203,6 +1233,9 @@
                   "style": "form"
                 },
                 "Property.Manager.TenantApproval": {
+                  "style": "form"
+                },
+                "Property.Manager.FcmToken": {
                   "style": "form"
                 },
                 "Property.Title": {
@@ -1290,6 +1323,9 @@
                   "style": "form"
                 },
                 "Caretaker.TenantApproval": {
+                  "style": "form"
+                },
+                "Caretaker.FcmToken": {
                   "style": "form"
                 },
                 "Description": {
@@ -2029,6 +2065,37 @@
         }
       }
     },
+    "/api/Notification/broadcast": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BroadcastDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Payment": {
       "post": {
         "tags": [
@@ -2559,6 +2626,9 @@
                   "Manager.TenantApproval": {
                     "type": "string"
                   },
+                  "Manager.FcmToken": {
+                    "type": "string"
+                  },
                   "Title": {
                     "type": "string"
                   },
@@ -2663,6 +2733,9 @@
                   "style": "form"
                 },
                 "Manager.TenantApproval": {
+                  "style": "form"
+                },
+                "Manager.FcmToken": {
                   "style": "form"
                 },
                 "Title": {
@@ -2878,6 +2951,9 @@
                   "Property.Manager.TenantApproval": {
                     "type": "string"
                   },
+                  "Property.Manager.FcmToken": {
+                    "type": "string"
+                  },
                   "Property.Title": {
                     "type": "string"
                   },
@@ -3011,6 +3087,9 @@
                   "style": "form"
                 },
                 "Property.Manager.TenantApproval": {
+                  "style": "form"
+                },
+                "Property.Manager.FcmToken": {
                   "style": "form"
                 },
                 "Property.Title": {
@@ -3311,6 +3390,9 @@
                   "Manager.TenantApproval": {
                     "type": "string"
                   },
+                  "Manager.FcmToken": {
+                    "type": "string"
+                  },
                   "Type": {
                     "type": "string"
                   },
@@ -3369,6 +3451,9 @@
                   "style": "form"
                 },
                 "Manager.TenantApproval": {
+                  "style": "form"
+                },
+                "Manager.FcmToken": {
                   "style": "form"
                 },
                 "Type": {
@@ -3762,6 +3847,48 @@
           }
         }
       }
+    },
+    "/api/Users/{id}/fcmtoken": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3772,6 +3899,20 @@
           "assignedCaretakerId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BroadcastDto": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4476,6 +4617,10 @@
             "type": "boolean"
           },
           "tenantApproval": {
+            "type": "string",
+            "nullable": true
+          },
+          "fcmToken": {
             "type": "string",
             "nullable": true
           }

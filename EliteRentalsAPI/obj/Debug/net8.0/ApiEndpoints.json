@@ -73,6 +73,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Tenant.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "LeaseId",
         "Type": "System.Int32",
         "IsRequired": false
@@ -149,6 +154,11 @@
       },
       {
         "Name": "Lease.Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Property.Manager.FcmToken",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -294,6 +304,11 @@
       },
       {
         "Name": "Lease.Tenant.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.Tenant.FcmToken",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -678,6 +693,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Tenant.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "PropertyId",
         "Type": "System.Int32",
         "IsRequired": false
@@ -744,6 +764,11 @@
       },
       {
         "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.FcmToken",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -889,6 +914,11 @@
       },
       {
         "Name": "Caretaker.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Caretaker.FcmToken",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -1305,6 +1335,22 @@
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
+    "Method": "Broadcast",
+    "RelativePath": "api/Notification/broadcast",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Controllers.NotificationController\u002BBroadcastDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
     "Method": "GetByUser",
     "RelativePath": "api/Notification/user/{userId}",
     "HttpMethod": "GET",
@@ -1695,6 +1741,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Manager.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -1920,6 +1971,11 @@
       },
       {
         "Name": "Property.Manager.TenantApproval",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Property.Manager.FcmToken",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -2218,6 +2274,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Manager.FcmToken",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Type",
         "Type": "System.String",
         "IsRequired": false
@@ -2373,6 +2434,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.UsersController",
+    "Method": "UpdateFcmToken",
+    "RelativePath": "api/Users/{id}/fcmtoken",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.UsersController",

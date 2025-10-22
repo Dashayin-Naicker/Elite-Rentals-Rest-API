@@ -17,6 +17,8 @@ namespace EliteRentalsAPI.Models
 
         public bool IsActive { get; set; } = true;  // default active
         public string? TenantApproval { get; set; } = "Pending"; // for tenants only
+
+        public string? FcmToken { get; set; }
     }
 }
 

@@ -555,3 +555,4 @@ C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\E
 C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\dasha\OneDrive - ADvTECH Ltd\INSY7315\Rest API\Elite-Rentals-Rest-API\EliteRentalsAPI\bin\Debug\net8.0\Secrets\elite-rentals-42256-eb6e5695fc9d.json
