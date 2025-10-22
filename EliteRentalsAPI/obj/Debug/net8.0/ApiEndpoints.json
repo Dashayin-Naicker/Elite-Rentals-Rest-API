@@ -2449,8 +2449,8 @@
         "IsRequired": true
       },
       {
-        "Name": "token",
-        "Type": "System.String",
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Controllers.UsersController\u002BFcmTokenDto",
         "IsRequired": true
       }
     ],

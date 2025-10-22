@@ -221,18 +221,24 @@ namespace EliteRentalsAPI.Controllers
             return u;
         }
 
+        public class FcmTokenDto
+        {
+            public string Token { get; set; } = "";
+        }
+
         [Authorize]
         [HttpPatch("{id:int}/fcmtoken")]
-        public async Task<IActionResult> UpdateFcmToken(int id, [FromBody] string token)
+        public async Task<IActionResult> UpdateFcmToken(int id, [FromBody] FcmTokenDto dto)
         {
             var user = await _ctx.Users.FindAsync(id);
             if (user == null) return NotFound();
 
-            user.FcmToken = token;
+            user.FcmToken = dto.Token;
             await _ctx.SaveChangesAsync();
 
             return Ok(new { message = "FCM token updated" });
         }
+
 
     }
 }
