@@ -61,6 +61,9 @@ namespace EliteRentalsAPI
             builder.Services.AddAuthorization();
 
             builder.Services.AddSingleton<FcmService>();
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+
 
 
 
