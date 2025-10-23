@@ -1,12 +1,10 @@
 ﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Util;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
 namespace EliteRentalsAPI.Services
 {
-
     public class FcmService
     {
         private readonly string _projectId;
@@ -15,13 +13,14 @@ namespace EliteRentalsAPI.Services
 
         public FcmService(IConfiguration config)
         {
-            var jsonPath = config["Fcm:ServiceAccountPath"]; // e.g., "Secrets/fcm-service-account.json"
+            var jsonPath = config["Fcm:ServiceAccountPath"];
             _projectId = config["Fcm:ProjectId"];
-            _credential = GoogleCredential.FromFile(jsonPath).CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
+            _credential = GoogleCredential.FromFile(jsonPath)
+                .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
             _http = new HttpClient();
         }
 
-        public async Task SendAsync(string token, string title, string body)
+        public async Task SendAsync(string token, string title, string body, object? data = null)
         {
             var accessToken = await _credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
 
@@ -34,7 +33,8 @@ namespace EliteRentalsAPI.Services
                     {
                         title,
                         body
-                    }
+                    },
+                    data = data
                 }
             };
 
@@ -46,9 +46,7 @@ namespace EliteRentalsAPI.Services
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             var response = await _http.SendAsync(request);
-            response.EnsureSuccessStatusCode(); // throws if not 200
+            response.EnsureSuccessStatusCode();
         }
     }
-
-
 }

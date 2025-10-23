@@ -1,5 +1,6 @@
 ﻿using EliteRentalsAPI.Data;
 using EliteRentalsAPI.Models;
+using EliteRentalsAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,19 +12,39 @@ namespace EliteRentalsAPI.Controllers
     public class MessageController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        public MessageController(AppDbContext ctx) { _ctx = ctx; }
+        private readonly FcmService _fcm;
 
-        // Send message
+        public MessageController(AppDbContext ctx, FcmService fcm)
+        {
+            _ctx = ctx;
+            _fcm = fcm;
+        }
+
+        // 🔹 Send message with push
         [Authorize]
         [HttpPost]
         public async Task<ActionResult<Message>> Send(Message msg)
         {
+            msg.Timestamp = DateTime.UtcNow;
             _ctx.Messages.Add(msg);
             await _ctx.SaveChangesAsync();
+
+            var receiver = await _ctx.Users.FindAsync(msg.ReceiverId);
+            var sender = await _ctx.Users.FindAsync(msg.SenderId);
+
+            if (receiver?.FcmToken != null && sender != null)
+            {
+                var preview = msg.MessageText.Length > 50 ? msg.MessageText.Substring(0, 50) + "..." : msg.MessageText;
+                await _fcm.SendAsync(receiver.FcmToken, "New Message", $"From {sender.FirstName}: {preview}", new
+                {
+                    type = "message"
+                });
+            }
+
             return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
         }
 
-        // Get message by ID
+        // 🔹 Get message by ID
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Message>> GetById(int id)
@@ -33,7 +54,7 @@ namespace EliteRentalsAPI.Controllers
             return m;
         }
 
-        // Get conversation between two users
+        // 🔹 Get conversation between two users
         [Authorize]
         [HttpGet("conversation/{user1:int}/{user2:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetConversation(int user1, int user2)
@@ -45,7 +66,7 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
-        // Get all messages for a user (inbox)
+        // 🔹 Get inbox
         [Authorize]
         [HttpGet("inbox/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetInbox(int userId)
@@ -56,7 +77,7 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
-        // Get all messages sent by a user
+        // 🔹 Get sent messages
         [Authorize]
         [HttpGet("sent/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetSent(int userId)
@@ -67,6 +88,7 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
+        // 🔹 Send broadcast with push
         [Authorize]
         [HttpPost("broadcast")]
         public async Task<ActionResult<Message>> SendBroadcast([FromBody] Message msg)
@@ -78,9 +100,22 @@ namespace EliteRentalsAPI.Controllers
             _ctx.Messages.Add(msg);
             await _ctx.SaveChangesAsync();
 
+            var recipients = await _ctx.Users
+                .Where(u => u.Role == msg.TargetRole && u.FcmToken != null)
+                .ToListAsync();
+
+            foreach (var user in recipients)
+            {
+                await _fcm.SendAsync(user.FcmToken, "Announcement", msg.MessageText, new
+                {
+                    type = "announcement"
+                });
+            }
+
             return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
         }
 
+        // 🔹 Get announcements for a user
         [Authorize]
         [HttpGet("announcements/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetAnnouncements(int userId)
@@ -98,7 +133,5 @@ namespace EliteRentalsAPI.Controllers
 
             return announcements;
         }
-
-
     }
 }
