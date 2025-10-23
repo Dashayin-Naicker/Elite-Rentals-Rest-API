@@ -23,26 +23,54 @@ namespace EliteRentalsAPI.Controllers
         // 🔹 Send message with push
         [Authorize]
         [HttpPost]
-        public async Task<ActionResult<Message>> Send(Message msg)
+        public async Task<ActionResult<Message>> Send([FromBody] Message msg)
         {
-            msg.Timestamp = DateTime.UtcNow;
-            _ctx.Messages.Add(msg);
-            await _ctx.SaveChangesAsync();
-
-            var receiver = await _ctx.Users.FindAsync(msg.ReceiverId);
-            var sender = await _ctx.Users.FindAsync(msg.SenderId);
-
-            if (receiver?.FcmToken != null && sender != null)
+            try
             {
-                var preview = msg.MessageText.Length > 50 ? msg.MessageText.Substring(0, 50) + "..." : msg.MessageText;
-                await _fcm.SendAsync(receiver.FcmToken, "New Message", $"From {sender.FirstName}: {preview}", new
+                if (msg == null || msg.SenderId == 0 || msg.ReceiverId == 0 || string.IsNullOrWhiteSpace(msg.MessageText))
                 {
-                    type = "message"
-                });
-            }
+                    return BadRequest("Invalid message payload.");
+                }
 
-            return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
+                msg.Timestamp = DateTime.UtcNow;
+                _ctx.Messages.Add(msg);
+                await _ctx.SaveChangesAsync();
+
+                var receiver = await _ctx.Users.FindAsync(msg.ReceiverId);
+                var sender = await _ctx.Users.FindAsync(msg.SenderId);
+
+                if (receiver == null || sender == null)
+                {
+                    return NotFound("Sender or receiver not found.");
+                }
+
+                if (!string.IsNullOrWhiteSpace(receiver.FcmToken))
+                {
+                    var preview = msg.MessageText.Length > 50 ? msg.MessageText.Substring(0, 50) + "..." : msg.MessageText;
+
+                    try
+                    {
+                        await _fcm.SendAsync(receiver.FcmToken, "New Message", $"From {sender.FirstName}: {preview}", new
+                        {
+                            type = "message"
+                        });
+                    }
+                    catch (Exception pushEx)
+                    {
+                        Console.WriteLine($"⚠️ Push notification failed: {pushEx.Message}");
+                        // Optional: log but don't fail the request
+                    }
+                }
+
+                return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error in MessageController.Send: {ex.Message}");
+                return StatusCode(500, "Internal Server Error");
+            }
         }
+
 
         // 🔹 Get message by ID
         [Authorize]
