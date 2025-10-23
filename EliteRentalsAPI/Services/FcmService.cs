@@ -22,31 +22,51 @@ namespace EliteRentalsAPI.Services
 
         public async Task SendAsync(string token, string title, string body, object? data = null)
         {
-            var accessToken = await _credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
-
-            var message = new
+            try
             {
-                message = new
+                var accessToken = await _credential.UnderlyingCredential.GetAccessTokenForRequestAsync();
+
+                var message = new
                 {
-                    token,
-                    notification = new
+                    message = new
                     {
-                        title,
-                        body
-                    },
-                    data = data
-                }
-            };
+                        token,
+                        notification = new
+                        {
+                            title,
+                            body
+                        },
+                        data = data
+                    }
+                };
 
-            var request = new HttpRequestMessage(HttpMethod.Post,
-                $"https://fcm.googleapis.com/v1/projects/{_projectId}/messages:send")
+                var payloadJson = JsonSerializer.Serialize(message, new JsonSerializerOptions { WriteIndented = true });
+                Console.WriteLine("📦 FCM Payload:");
+                Console.WriteLine(payloadJson);
+
+                var request = new HttpRequestMessage(HttpMethod.Post,
+                    $"https://fcm.googleapis.com/v1/projects/{_projectId}/messages:send")
+                {
+                    Content = new StringContent(payloadJson, Encoding.UTF8, "application/json")
+                };
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                Console.WriteLine($"🎯 Sending to token: {token}");
+
+                var response = await _http.SendAsync(request);
+                var responseBody = await response.Content.ReadAsStringAsync();
+
+                Console.WriteLine($"📡 FCM Response: {(int)response.StatusCode} {response.StatusCode}");
+                Console.WriteLine(responseBody);
+
+                response.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
             {
-                Content = new StringContent(JsonSerializer.Serialize(message), Encoding.UTF8, "application/json")
-            };
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-            var response = await _http.SendAsync(request);
-            response.EnsureSuccessStatusCode();
+                Console.WriteLine($"❌ FCM SendAsync failed: {ex.Message}");
+                throw;
+            }
         }
+
     }
 }
