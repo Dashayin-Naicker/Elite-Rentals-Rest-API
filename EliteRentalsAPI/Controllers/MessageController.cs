@@ -190,13 +190,24 @@ namespace EliteRentalsAPI.Controllers
         [HttpPost("testpush/{userId:int}")]
         public async Task<IActionResult> TestPush(int userId)
         {
-            var user = await _ctx.Users.FindAsync(userId);
-            if (user == null || string.IsNullOrWhiteSpace(user.FcmToken))
-                return BadRequest("No token for this user.");
+            try
+            {
+                var user = await _ctx.Users.FindAsync(userId);
+                if (user == null) return NotFound($"User {userId} not found");
 
-            await _fcm.SendAsync(user.FcmToken, "Test Push", "This is a test notification from backend.", new { type = "message" });
-            return Ok("Push sent.");
+                if (string.IsNullOrWhiteSpace(user.FcmToken))
+                    return BadRequest($"User {userId} does not have a FCM token");
+
+                await _fcm.SendAsync(user.FcmToken, "Test Push", "This is a test message", new { type = "message" });
+                return Ok("Push sent");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ TestPush error: {ex}");
+                return StatusCode(500, ex.Message);
+            }
         }
+
 
     }
 }
