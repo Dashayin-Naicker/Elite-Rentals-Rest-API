@@ -13,14 +13,16 @@ namespace EliteRentalsAPI.Controllers
     {
         private readonly AppDbContext _ctx;
         private readonly FcmService _fcm;
+        private readonly ILogger<MessageController> _logger;
 
-        public MessageController(AppDbContext ctx, FcmService fcm)
+        public MessageController(AppDbContext ctx, FcmService fcm, ILogger<MessageController> logger)
         {
             _ctx = ctx;
             _fcm = fcm;
+            _logger = logger;
         }
 
-        // 🔹 Send message with push
+        // 🔹 Send message + push notification
         [Authorize]
         [HttpPost]
         public async Task<ActionResult<Message>> Send([FromBody] Message msg)
@@ -28,37 +30,43 @@ namespace EliteRentalsAPI.Controllers
             try
             {
                 if (msg == null || msg.SenderId == 0 || msg.ReceiverId == 0 || string.IsNullOrWhiteSpace(msg.MessageText))
-                {
                     return BadRequest("Invalid message payload.");
-                }
 
                 msg.Timestamp = DateTime.UtcNow;
+
                 _ctx.Messages.Add(msg);
                 await _ctx.SaveChangesAsync();
 
-                var receiver = await _ctx.Users.FindAsync(msg.ReceiverId);
-                var sender = await _ctx.Users.FindAsync(msg.SenderId);
+                var receiver = await _ctx.Users.FirstOrDefaultAsync(u => u.UserId == msg.ReceiverId);
+                var sender = await _ctx.Users.FirstOrDefaultAsync(u => u.UserId == msg.SenderId);
 
                 if (receiver == null || sender == null)
-                {
                     return NotFound("Sender or receiver not found.");
-                }
 
                 if (!string.IsNullOrWhiteSpace(receiver.FcmToken))
                 {
-                    var preview = msg.MessageText.Length > 50 ? msg.MessageText.Substring(0, 50) + "..." : msg.MessageText;
+                    var preview = msg.MessageText.Length > 60
+                        ? msg.MessageText.Substring(0, 60) + "..."
+                        : msg.MessageText;
 
                     try
                     {
-                        await _fcm.SendAsync(receiver.FcmToken, "New Message", $"From {sender.FirstName}: {preview}", new
-                        {
-                            type = "message"
-                        });
+                        await _fcm.SendAsync(
+                            receiver.FcmToken,
+                            "📩 New Message",
+                            $"From {sender.FirstName}: {preview}",
+                            new
+                            {
+                                type = "message",
+                                senderId = msg.SenderId,
+                                receiverId = msg.ReceiverId,
+                                messageId = msg.MessageId
+                            }
+                        );
                     }
                     catch (Exception pushEx)
                     {
-                        Console.WriteLine($"⚠️ Push notification failed: {pushEx.Message}");
-                        // Optional: log but don't fail the request
+                        _logger.LogWarning(pushEx, "⚠️ Failed to send FCM push notification.");
                     }
                 }
 
@@ -66,20 +74,19 @@ namespace EliteRentalsAPI.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Error in MessageController.Send: {ex.Message}");
+                _logger.LogError(ex, "❌ Error in Send()");
                 return StatusCode(500, "Internal Server Error");
             }
         }
-
 
         // 🔹 Get message by ID
         [Authorize]
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Message>> GetById(int id)
         {
-            var m = await _ctx.Messages.FindAsync(id);
-            if (m == null) return NotFound();
-            return m;
+            var message = await _ctx.Messages.FindAsync(id);
+            if (message == null) return NotFound();
+            return message;
         }
 
         // 🔹 Get conversation between two users
@@ -94,7 +101,7 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
-        // 🔹 Get inbox
+        // 🔹 Inbox
         [Authorize]
         [HttpGet("inbox/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetInbox(int userId)
@@ -105,7 +112,7 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
-        // 🔹 Get sent messages
+        // 🔹 Sent items
         [Authorize]
         [HttpGet("sent/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetSent(int userId)
@@ -116,55 +123,68 @@ namespace EliteRentalsAPI.Controllers
                 .ToListAsync();
         }
 
-        // 🔹 Send broadcast with push
-        [Authorize]
+        // 🔹 Send broadcast + push
+        [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost("broadcast")]
         public async Task<ActionResult<Message>> SendBroadcast([FromBody] Message msg)
         {
-            msg.IsBroadcast = true;
-            msg.ReceiverId = null;
-            msg.Timestamp = DateTime.UtcNow;
-
-            _ctx.Messages.Add(msg);
-            await _ctx.SaveChangesAsync();
-
-            var recipients = await _ctx.Users
-                .Where(u => u.Role == msg.TargetRole && u.FcmToken != null)
-                .ToListAsync();
-
-            foreach (var user in recipients)
+            try
             {
-                try
+                if (string.IsNullOrWhiteSpace(msg.MessageText))
+                    return BadRequest("Broadcast message cannot be empty.");
+
+                msg.IsBroadcast = true;
+                msg.ReceiverId = null;
+                msg.Timestamp = DateTime.UtcNow;
+
+                _ctx.Messages.Add(msg);
+                await _ctx.SaveChangesAsync();
+
+                var recipients = await _ctx.Users
+                    .Where(u => (msg.TargetRole == null || u.Role == msg.TargetRole) && !string.IsNullOrEmpty(u.FcmToken))
+                    .ToListAsync();
+
+                _logger.LogInformation("📣 Sending broadcast to {Count} users", recipients.Count);
+
+                foreach (var user in recipients)
                 {
-                    await _fcm.SendAsync(user.FcmToken, "Announcement", msg.MessageText, new { type = "announcement" });
+                    try
+                    {
+                        await _fcm.SendAsync(
+                            user.FcmToken,
+                            "📢 Announcement",
+                            msg.MessageText,
+                            new { type = "announcement" }
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogWarning(ex, "⚠️ Failed to push to {Email}", user.Email);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"⚠️ Failed to push to {user.Email}: {ex.Message}");
-                }
+
+                return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
             }
-
-
-            return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "❌ Error in SendBroadcast()");
+                return StatusCode(500, "Internal Server Error");
+            }
         }
 
-        // 🔹 Get announcements for a user
+        // 🔹 Get announcements visible to a specific user
         [Authorize]
         [HttpGet("announcements/{userId:int}")]
         public async Task<ActionResult<IEnumerable<Message>>> GetAnnouncements(int userId)
         {
             var user = await _ctx.Users.FindAsync(userId);
-            if (user == null) return NotFound();
+            if (user == null) return NotFound("User not found.");
 
-            var role = user.Role;
-
-            var announcements = await _ctx.Messages
+            return await _ctx.Messages
                 .Where(m => m.IsBroadcast &&
-                            (m.TargetRole == null || m.TargetRole == role))
+                            (m.TargetRole == null || m.TargetRole == user.Role))
                 .OrderByDescending(m => m.Timestamp)
                 .ToListAsync();
-
-            return announcements;
         }
     }
 }
