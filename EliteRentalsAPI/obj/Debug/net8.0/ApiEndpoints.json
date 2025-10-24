@@ -1292,6 +1292,22 @@
     ]
   },
   {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "TestPush",
+    "RelativePath": "api/Message/testpush/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EliteRentalsAPI.Controllers.NotificationController",
     "Method": "Create",
     "RelativePath": "api/Notification",

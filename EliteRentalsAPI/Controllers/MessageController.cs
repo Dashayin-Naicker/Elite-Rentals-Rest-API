@@ -186,5 +186,17 @@ namespace EliteRentalsAPI.Controllers
                 .OrderByDescending(m => m.Timestamp)
                 .ToListAsync();
         }
+
+        [HttpPost("testpush/{userId:int}")]
+        public async Task<IActionResult> TestPush(int userId)
+        {
+            var user = await _ctx.Users.FindAsync(userId);
+            if (user == null || string.IsNullOrWhiteSpace(user.FcmToken))
+                return BadRequest("No token for this user.");
+
+            await _fcm.SendAsync(user.FcmToken, "Test Push", "This is a test notification from backend.", new { type = "message" });
+            return Ok("Push sent.");
+        }
+
     }
 }
