@@ -16,10 +16,11 @@ namespace EliteRentalsAPI.Services
         public FcmService(IConfiguration config, ILogger<FcmService> logger)
         {
             _logger = logger;
-            var jsonPath = config["Fcm:ServiceAccountPath"];
+            var json = config["Fcm:ServiceAccountJson"];
             _projectId = config["Fcm:ProjectId"];
-            _credential = GoogleCredential.FromFile(jsonPath)
+            _credential = GoogleCredential.FromJson(json)
                 .CreateScoped("https://www.googleapis.com/auth/firebase.messaging");
+
             _http = new HttpClient();
         }
 
