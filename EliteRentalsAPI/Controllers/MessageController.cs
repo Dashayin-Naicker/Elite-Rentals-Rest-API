@@ -134,11 +134,16 @@ namespace EliteRentalsAPI.Controllers
 
             foreach (var user in recipients)
             {
-                await _fcm.SendAsync(user.FcmToken, "Announcement", msg.MessageText, new
+                try
                 {
-                    type = "announcement"
-                });
+                    await _fcm.SendAsync(user.FcmToken, "Announcement", msg.MessageText, new { type = "announcement" });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"⚠️ Failed to push to {user.Email}: {ex.Message}");
+                }
             }
+
 
             return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
         }
