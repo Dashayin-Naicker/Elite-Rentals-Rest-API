@@ -51,17 +51,21 @@ namespace EliteRentalsAPI.Controllers
 
                     try
                     {
+                        // Ensure all data payload values are strings
+                        var dataPayload = new Dictionary<string, string>
+        {
+            { "type", "message" },
+            { "senderId", msg.SenderId.ToString() },
+            { "receiverId", msg.ReceiverId.ToString() },
+            { "messageId", msg.MessageId.ToString() },
+            { "preview", preview } // optional: for showing in notification click
+        };
+
                         await _fcm.SendAsync(
                             receiver.FcmToken,
                             "📩 New Message",
                             $"From {sender.FirstName}: {preview}",
-                            new
-                            {
-                                type = "message",
-                                senderId = msg.SenderId,
-                                receiverId = msg.ReceiverId,
-                                messageId = msg.MessageId
-                            }
+                            dataPayload
                         );
                     }
                     catch (Exception pushEx)
@@ -69,6 +73,7 @@ namespace EliteRentalsAPI.Controllers
                         _logger.LogWarning(pushEx, "⚠️ Failed to send FCM push notification.");
                     }
                 }
+
 
                 return CreatedAtAction(nameof(GetById), new { id = msg.MessageId }, msg);
             }
@@ -150,11 +155,21 @@ namespace EliteRentalsAPI.Controllers
                 {
                     try
                     {
+                        // 🔹 Ensure all payload values are strings
+                        var dataPayload = new Dictionary<string, string>
+                {
+                    { "type", "announcement" },
+                    { "messageId", msg.MessageId.ToString() },
+                    { "targetRole", msg.TargetRole ?? "" },
+                    { "title", "📢 Announcement" },
+                    { "body", msg.MessageText }
+                };
+
                         await _fcm.SendAsync(
                             user.FcmToken,
                             "📢 Announcement",
                             msg.MessageText,
-                            new { type = "announcement" }
+                            dataPayload
                         );
                     }
                     catch (Exception ex)
@@ -171,6 +186,7 @@ namespace EliteRentalsAPI.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+
 
         // 🔹 Get announcements visible to a specific user
         [Authorize]
