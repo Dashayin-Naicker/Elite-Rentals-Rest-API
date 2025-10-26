@@ -63,6 +63,7 @@ namespace EliteRentalsAPI
             builder.Services.AddSingleton<FcmService>();
             builder.Services.AddHostedService<RentReminderService>();
             builder.Services.AddHostedService<LeaseExpiryService>();
+            builder.Services.AddHostedService<OverduePaymentService>();
             builder.Services.AddHttpClient();
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();

@@ -1,6 +1,7 @@
 ﻿using EliteRentalsAPI.Data;
 using EliteRentalsAPI.Models;
 using EliteRentalsAPI.Models.DTOs;
+using EliteRentalsAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,13 @@ namespace EliteRentalsAPI.Controllers
     public class PaymentController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        public PaymentController(AppDbContext ctx) { _ctx = ctx; }
+        private readonly FcmService _fcm;
+
+        public PaymentController(AppDbContext ctx, FcmService fcm)
+        {
+            _ctx = ctx;
+            _fcm = fcm;
+        }
 
         // Submit payment (tenant)
         [HttpPost]
@@ -73,16 +80,48 @@ namespace EliteRentalsAPI.Controllers
             return File(p.ProofData, p.ProofType ?? "application/octet-stream", $"payment_{id}_proof");
         }
 
-        // Approve/Reject payment
+        // Approve/Reject payment & notify tenant
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}/status")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] PaymentStatusDto dto)
         {
-            var p = await _ctx.Payments.FindAsync(id);
+            var p = await _ctx.Payments
+                .Include(x => x.Tenant)
+                .FirstOrDefaultAsync(x => x.PaymentId == id);
+
             if (p == null) return NotFound();
 
-            p.Status = dto.Status; // Paid, Overdue, Rejected
-            await _ctx.SaveChangesAsync();
+            // Only notify if status actually changes
+            if (p.Status != dto.Status)
+            {
+                p.Status = dto.Status; // Paid, Overdue, Rejected
+                await _ctx.SaveChangesAsync();
+
+                if (!string.IsNullOrEmpty(p.Tenant?.FcmToken))
+                {
+                    try
+                    {
+                        await _fcm.SendAsync(
+                            p.Tenant.FcmToken,
+                            "💰 Payment Status Updated",
+                            $"Hi {p.Tenant.FirstName}, your payment #{p.PaymentId} status has been changed to '{p.Status}'.",
+                            new Dictionary<string, string>
+                            {
+                                { "type", "payment_status_update" },
+                                { "paymentId", p.PaymentId.ToString() },
+                                { "tenantId", p.TenantId.ToString() },
+                                { "status", p.Status }
+                            }
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        // log and continue
+                        Console.WriteLine($"⚠️ Failed to send FCM: {ex.Message}");
+                    }
+                }
+            }
+
             return NoContent();
         }
     }
