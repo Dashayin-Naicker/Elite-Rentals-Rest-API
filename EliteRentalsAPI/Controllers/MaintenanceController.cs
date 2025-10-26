@@ -1,6 +1,7 @@
 ﻿using EliteRentalsAPI.Data;
 using EliteRentalsAPI.Models;
 using EliteRentalsAPI.Models.DTOs;
+using EliteRentalsAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,15 @@ namespace EliteRentalsAPI.Controllers
     public class MaintenanceController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        public MaintenanceController(AppDbContext ctx) { _ctx = ctx; }
+        private readonly FcmService _fcm;
+        private readonly ILogger<MaintenanceController> _logger;
+
+        public MaintenanceController(AppDbContext ctx, FcmService fcm, ILogger<MaintenanceController> logger)
+        {
+            _ctx = ctx;
+            _fcm = fcm;
+            _logger = logger;
+        }
 
         // Tenant creates request
         [Authorize(Roles = "Tenant")]
@@ -73,13 +82,65 @@ namespace EliteRentalsAPI.Controllers
         [HttpPut("{id:int}/status")]
         public async Task<IActionResult> UpdateStatus(int id, [FromBody] MaintenanceStatusDto dto)
         {
-            var m = await _ctx.Maintenance.FindAsync(id);
-            if (m == null) return NotFound();
+            var m = await _ctx.Maintenance
+                .Include(x => x.Tenant)
+                .Include(x => x.Caretaker)
+                .FirstOrDefaultAsync(x => x.MaintenanceId == id);
 
+            if (m == null) return NotFound("Maintenance request not found.");
+
+            // Update status and timestamp
             m.Status = dto.Status;
             m.UpdatedAt = DateTime.UtcNow;
             await _ctx.SaveChangesAsync();
-            return NoContent();
+
+            // 🔹 Notify tenant
+            if (m.Tenant?.FcmToken != null)
+            {
+                try
+                {
+                    await _fcm.SendAsync(
+                        m.Tenant.FcmToken,
+                        "🛠 Maintenance Update",
+                        $"Your maintenance request #{m.MaintenanceId} is now '{m.Status}'.",
+                        new Dictionary<string, string>
+                        {
+                            { "type", "maintenance_update" },
+                            { "maintenanceId", m.MaintenanceId.ToString() },
+                            { "status", m.Status }
+                        }
+                    );
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "⚠️ Failed to send maintenance update to tenant {TenantId}", m.TenantId);
+                }
+            }
+
+            // 🔹 Notify caretaker (if assigned)
+            if (m.AssignedCaretakerId.HasValue && m.Caretaker?.FcmToken != null)
+            {
+                try
+                {
+                    await _fcm.SendAsync(
+                        m.Caretaker.FcmToken,
+                        "🔧 Maintenance Task Update",
+                        $"Task #{m.MaintenanceId} status changed to '{m.Status}'.",
+                        new Dictionary<string, string>
+                        {
+                            { "type", "task_update" },
+                            { "maintenanceId", m.MaintenanceId.ToString() },
+                            { "status", m.Status }
+                        }
+                    );
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "⚠️ Failed to send maintenance update to caretaker {CaretakerId}", m.AssignedCaretakerId);
+                }
+            }
+
+            return Ok(new { message = "Status updated and notifications sent." });
         }
 
         // Get all requests for the current tenant
@@ -106,7 +167,11 @@ namespace EliteRentalsAPI.Controllers
         [HttpPut("{id:int}/assign-caretaker")]
         public async Task<IActionResult> AssignCaretaker(int id, [FromBody] AssignCaretakerDto dto)
         {
-            var m = await _ctx.Maintenance.FindAsync(id);
+            var m = await _ctx.Maintenance
+                .Include(x => x.Property)
+                .Include(x => x.Tenant)
+                .FirstOrDefaultAsync(x => x.MaintenanceId == id);
+
             if (m == null)
                 return NotFound(new { message = "Maintenance request not found." });
 
@@ -118,8 +183,33 @@ namespace EliteRentalsAPI.Controllers
             m.UpdatedAt = DateTime.UtcNow;
             await _ctx.SaveChangesAsync();
 
-            return Ok(new { message = "Caretaker assigned successfully." });
+            // 🔹 Notify caretaker
+            if (!string.IsNullOrWhiteSpace(caretaker.FcmToken))
+            {
+                try
+                {
+                    await _fcm.SendAsync(
+                        caretaker.FcmToken,
+                        "🛠 New Maintenance Task Assigned",
+                        $"You have been assigned to maintenance request #{m.MaintenanceId} at {m.Property?.Address ?? "property"}",
+                        new Dictionary<string, string>
+                        {
+                    { "type", "task_assignment" },
+                    { "maintenanceId", m.MaintenanceId.ToString() },
+                    { "tenantId", m.TenantId.ToString() },
+                    { "propertyId", m.PropertyId.ToString() }
+                        }
+                    );
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "⚠️ Failed to send task assignment notification to caretaker {CaretakerId}", caretaker.UserId);
+                }
+            }
+
+            return Ok(new { message = "Caretaker assigned and notified successfully." });
         }
+
 
 
     }

@@ -61,6 +61,8 @@ namespace EliteRentalsAPI
             builder.Services.AddAuthorization();
 
             builder.Services.AddSingleton<FcmService>();
+            builder.Services.AddHostedService<RentReminderService>();
+            builder.Services.AddHostedService<LeaseExpiryService>();
             builder.Services.AddHttpClient();
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();

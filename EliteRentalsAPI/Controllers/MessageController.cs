@@ -224,6 +224,110 @@ namespace EliteRentalsAPI.Controllers
             }
         }
 
+        // 🔹 Send rent due reminder to a tenant
+        [Authorize(Roles = "Admin,PropertyManager")]
+        [HttpPost("remind-rent/{tenantId:int}")]
+        public async Task<IActionResult> SendRentReminder(int tenantId, [FromQuery] DateTime? dueDate)
+        {
+            var tenant = await _ctx.Users.FindAsync(tenantId);
+            if (tenant == null || string.IsNullOrWhiteSpace(tenant.FcmToken))
+                return NotFound("Tenant not found or FCM token missing");
+
+            var rentDueDate = dueDate ?? DateTime.UtcNow.AddDays(3); // default: 3 days from now
+
+            var dataPayload = new Dictionary<string, string>
+    {
+        { "type", "rent_due" },
+        { "tenantId", tenant.UserId.ToString() },
+        { "dueDate", rentDueDate.ToString("yyyy-MM-dd") }
+    };
+
+            await _fcm.SendAsync(
+                tenant.FcmToken,
+                "💰 Rent Due Reminder",
+                $"Hi {tenant.FirstName}, your rent is due on {rentDueDate:dd MMM}.",
+                dataPayload
+            );
+
+            return Ok("Rent reminder sent.");
+        }
+
+        // 🔹 Notify maintenance progress (Tenants & Caretakers)
+        // 🔹 Notify maintenance progress (Tenants & Caretakers)
+        [Authorize(Roles = "Admin,PropertyManager,Caretaker")]
+        [HttpPost("maintenance-update/{maintenanceId:int}")]
+        public async Task<IActionResult> NotifyMaintenanceUpdate(int maintenanceId, [FromQuery] string status)
+        {
+            var maintenance = await _ctx.Maintenance.FindAsync(maintenanceId);
+            if (maintenance == null) return NotFound("Maintenance task not found");
+
+            // Tenant notification
+            var tenant = await _ctx.Users.FindAsync(maintenance.TenantId);
+            if (tenant?.FcmToken != null)
+            {
+                await _fcm.SendAsync(
+                    tenant.FcmToken,
+                    "🛠 Maintenance Update",
+                    $"Your maintenance request #{maintenanceId} is now '{status}'.",
+                    new Dictionary<string, string>
+                    {
+                { "type", "maintenance_update" },
+                { "maintenanceId", maintenanceId.ToString() },
+                { "status", status }
+                    }
+                );
+            }
+
+            // Caretaker notification
+            if (maintenance.AssignedCaretakerId.HasValue)
+            {
+                var caretaker = await _ctx.Users.FindAsync(maintenance.AssignedCaretakerId.Value);
+                if (caretaker?.FcmToken != null)
+                {
+                    await _fcm.SendAsync(
+                        caretaker.FcmToken,
+                        "🛠 Task Update",
+                        $"Maintenance task #{maintenanceId} status updated to '{status}'.",
+                        new Dictionary<string, string>
+                        {
+                    { "type", "task_update" },
+                    { "maintenanceId", maintenanceId.ToString() },
+                    { "status", status }
+                        }
+                    );
+                }
+            }
+
+            return Ok("Maintenance notifications sent.");
+        }
+
+
+        // 🔹 Notify escalations or overdue items (Property Managers & Admins)
+        [Authorize(Roles = "Admin,PropertyManager")]
+        [HttpPost("notify-escalation/{escalationId:int}")]
+        public async Task<IActionResult> NotifyEscalation(int escalationId, [FromQuery] string description)
+        {
+            var recipients = await _ctx.Users
+                .Where(u => (u.Role == "PropertyManager" || u.Role == "Admin") && !string.IsNullOrEmpty(u.FcmToken))
+                .ToListAsync();
+
+            foreach (var user in recipients)
+            {
+                await _fcm.SendAsync(
+                    user.FcmToken,
+                    "⚠️ Escalation Alert",
+                    description,
+                    new Dictionary<string, string>
+                    {
+                { "type", "escalation" },
+                { "escalationId", escalationId.ToString() }
+                    }
+                );
+            }
+
+            return Ok("Escalation notifications sent.");
+        }
+
 
     }
 }
