@@ -135,10 +135,64 @@ namespace EliteRentalsAPI.Controllers
         {
             var lease = await _ctx.Leases.FindAsync(id);
             if (lease == null) return NotFound();
+
+            if (!lease.IsArchived)
+                return BadRequest("Please archive the lease before deleting it permanently.");
+
             _ctx.Leases.Remove(lease);
             await _ctx.SaveChangesAsync();
             return NoContent();
         }
+
+        // 🔹 Archive a lease (soft delete)
+        [Authorize(Roles = "Admin,PropertyManager")]
+        [HttpPut("archive/{id:int}")]
+        public async Task<IActionResult> Archive(int id)
+        {
+            var lease = await _ctx.Leases.FindAsync(id);
+            if (lease == null)
+                return NotFound();
+
+            lease.IsArchived = true;
+            lease.ArchivedDate = DateTime.UtcNow;
+            lease.Status = "Archived";
+
+            await _ctx.SaveChangesAsync();
+            return Ok(new { message = "Lease archived successfully." });
+        }
+
+        // 🔹 Restore archived lease
+        [Authorize(Roles = "Admin,PropertyManager")]
+        [HttpPut("restore/{id:int}")]
+        public async Task<IActionResult> Restore(int id)
+        {
+            var lease = await _ctx.Leases.FindAsync(id);
+            if (lease == null)
+                return NotFound();
+
+            lease.IsArchived = false;
+            lease.ArchivedDate = null;
+            lease.Status = "Active";
+
+            await _ctx.SaveChangesAsync();
+            return Ok(new { message = "Lease restored successfully." });
+        }
+
+        // 🔹 Get all archived leases
+        [Authorize(Roles = "Admin,PropertyManager")]
+        [HttpGet("archived")]
+        public async Task<ActionResult<IEnumerable<Lease>>> GetArchived()
+        {
+            var archived = await _ctx.Leases
+                .Include(l => l.Property)
+                .Include(l => l.Tenant)
+                .Where(l => l.IsArchived)
+                .OrderByDescending(l => l.ArchivedDate)
+                .ToListAsync();
+
+            return Ok(archived);
+        }
+
 
         // Example: Server-side PDF generation (optional)
         // private void GenerateLeasePdf(Lease lease)

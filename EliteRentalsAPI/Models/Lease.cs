@@ -22,5 +22,8 @@ namespace EliteRentalsAPI.Models
         public string Status { get; set; } = "Active";
         public byte[]? DocumentData { get; set; }
         public string? DocumentType { get; set; }
+
+        public bool IsArchived { get; set; } = false;
+        public DateTime? ArchivedDate { get; set; }
     }
 }

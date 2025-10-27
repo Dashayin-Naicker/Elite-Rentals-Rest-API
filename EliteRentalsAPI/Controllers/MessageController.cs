@@ -328,6 +328,50 @@ namespace EliteRentalsAPI.Controllers
             return Ok("Escalation notifications sent.");
         }
 
+        // 🔹 Archive a message
+        [Authorize]
+        [HttpPut("archive/{id:int}")]
+        public async Task<IActionResult> ArchiveMessage(int id)
+        {
+            var msg = await _ctx.Messages.FindAsync(id);
+            if (msg == null)
+                return NotFound();
+
+            msg.IsArchived = true;
+            msg.ArchivedDate = DateTime.UtcNow;
+            await _ctx.SaveChangesAsync();
+
+            return Ok(new { message = "Message archived successfully." });
+        }
+
+        // 🔹 Restore a message
+        [Authorize]
+        [HttpPut("restore/{id:int}")]
+        public async Task<IActionResult> RestoreMessage(int id)
+        {
+            var msg = await _ctx.Messages.FindAsync(id);
+            if (msg == null)
+                return NotFound();
+
+            msg.IsArchived = false;
+            msg.ArchivedDate = null;
+            await _ctx.SaveChangesAsync();
+
+            return Ok(new { message = "Message restored successfully." });
+        }
+
+        // 🔹 Get archived messages for a user
+        [Authorize]
+        [HttpGet("archived/{userId:int}")]
+        public async Task<ActionResult<IEnumerable<Message>>> GetArchivedMessages(int userId)
+        {
+            var archived = await _ctx.Messages
+                .Where(m => (m.SenderId == userId || m.ReceiverId == userId) && m.IsArchived)
+                .OrderByDescending(m => m.ArchivedDate)
+                .ToListAsync();
+
+            return Ok(archived);
+        }
 
     }
 }

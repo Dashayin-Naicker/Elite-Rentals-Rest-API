@@ -22,5 +22,8 @@ namespace EliteRentalsAPI.Models
 
         public bool IsBroadcast { get; set; } = false; 
         public string? TargetRole { get; set; }
+
+        public bool IsArchived { get; set; } = false;
+        public DateTime? ArchivedDate { get; set; }
     }
 }
