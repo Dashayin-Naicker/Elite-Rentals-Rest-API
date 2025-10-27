@@ -178,20 +178,48 @@ namespace EliteRentalsAPI.Controllers
             return Ok(new { message = "Lease restored successfully." });
         }
 
-        // 🔹 Get all archived leases
+        // 🔹 Get all archived leases (like GetAll)
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpGet("archived")]
-        public async Task<ActionResult<IEnumerable<Lease>>> GetArchived()
+        public async Task<ActionResult<IEnumerable<object>>> GetArchived()
         {
             var archived = await _ctx.Leases
                 .Include(l => l.Property)
                 .Include(l => l.Tenant)
                 .Where(l => l.IsArchived)
                 .OrderByDescending(l => l.ArchivedDate)
+                .Select(l => new
+                {
+                    l.LeaseId,
+                    l.PropertyId,
+                    Property = l.Property == null ? null : new
+                    {
+                        l.Property.PropertyId,
+                        l.Property.Title,
+                        l.Property.Description,
+                        l.Property.RentAmount
+                    },
+                    l.TenantId,
+                    Tenant = l.Tenant == null ? null : new
+                    {
+                        l.Tenant.UserId,
+                        l.Tenant.FirstName,
+                        l.Tenant.LastName,
+                        l.Tenant.Email
+                    },
+                    l.StartDate,
+                    l.EndDate,
+                    l.Deposit,
+                    l.Status,
+                    l.DocumentData,
+                    l.DocumentType,
+                    l.ArchivedDate
+                })
                 .ToListAsync();
 
             return Ok(archived);
         }
+
 
 
         // Example: Server-side PDF generation (optional)
