@@ -1,5 +1,7 @@
 ﻿using EliteRentalsAPI.Data;
+using EliteRentalsAPI.Helpers;
 using EliteRentalsAPI.Models;
+using EliteRentalsAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +13,12 @@ namespace EliteRentalsAPI.Controllers
     public class LeaseController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        public LeaseController(AppDbContext ctx) { _ctx = ctx; }
+        private readonly EmailService _email;
+        public LeaseController(AppDbContext ctx, EmailService email)
+        {
+            _ctx = ctx;
+            _email = email;
+        }
 
         // Create lease
         [Authorize(Roles = "Admin,PropertyManager")]
@@ -24,6 +31,25 @@ namespace EliteRentalsAPI.Controllers
 
             _ctx.Leases.Add(lease);
             await _ctx.SaveChangesAsync();
+
+            // ✅ Send email receipt to tenant
+            var tenant = await _ctx.Users.FindAsync(lease.TenantId);
+            if (tenant != null)
+            {
+                string subject = "Your Lease Agreement Confirmation";
+                string messageBody = $@"
+    <p>Dear {tenant.FirstName},</p>
+    <p>Your lease for property <b>{lease.PropertyId}</b> has been successfully created.</p>
+    <p><b>Start Date:</b> {lease.StartDate:yyyy-MM-dd}<br>
+       <b>End Date:</b> {lease.EndDate:yyyy-MM-dd}</p>
+    <a class='button' href='#'>View Lease Details</a>
+    <p>Thank you,<br>Elite Rentals</p>";
+
+                string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
+                _email.SendEmail(tenant.Email, subject, htmlBody);
+
+            }
+
             return CreatedAtAction(nameof(Get), new { id = lease.LeaseId }, lease);
         }
 

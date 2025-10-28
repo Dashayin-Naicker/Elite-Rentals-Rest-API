@@ -1,6 +1,8 @@
 ﻿using EliteRentalsAPI.Data;
+using EliteRentalsAPI.Helpers;
 using EliteRentalsAPI.Models;
 using EliteRentalsAPI.Models.DTOs;
+using EliteRentalsAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +14,12 @@ namespace EliteRentalsAPI.Controllers
     public class RentalApplicationsController : ControllerBase
     {
         private readonly AppDbContext _ctx;
-        public RentalApplicationsController(AppDbContext ctx) { _ctx = ctx; }
+        private readonly EmailService _email;
+        public RentalApplicationsController(AppDbContext ctx, EmailService email)
+        {
+            _ctx = ctx;
+            _email = email;
+        }
 
         // Submit rental application (public)
         [HttpPost]
@@ -27,6 +34,23 @@ namespace EliteRentalsAPI.Controllers
             }
             _ctx.Applications.Add(app);
             await _ctx.SaveChangesAsync();
+
+            // ✅ Send email confirmation to applicant
+            if (!string.IsNullOrEmpty(app.Email))
+            {
+                string subject = "Rental Application Received";
+                string messageBody = $@"
+    <p>Dear {app.ApplicantName},</p>
+    <p>Thank you for applying for a rental property with Elite Rentals.</p>
+    <p>Your application ID: <b>{app.ApplicationId}</b>.</p>
+    <a class='button' href='#'>View Application Status</a>
+    <p>We will contact you once it has been reviewed.</p>";
+
+                string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
+                _email.SendEmail(app.Email, subject, htmlBody);
+
+            }
+
             return CreatedAtAction(nameof(Get), new { id = app.ApplicationId }, app);
         }
 
@@ -66,6 +90,19 @@ namespace EliteRentalsAPI.Controllers
 
             app.Status = dto.Status;
             await _ctx.SaveChangesAsync();
+
+            // ✅ Send status update email
+            string subject = $"Your Application Has Been {dto.Status}";
+            string messageBody = $@"
+    <p>Dear {app.ApplicantName},</p>
+    <p>Your rental application has been <b>{dto.Status}</b>.</p>
+    <a class='button' href='#'>View Application</a>
+    <p>Thank you for choosing Elite Rentals.</p>";
+
+            string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
+            _email.SendEmail(app.Email, subject, htmlBody);
+
+
             return NoContent();
         }
     }

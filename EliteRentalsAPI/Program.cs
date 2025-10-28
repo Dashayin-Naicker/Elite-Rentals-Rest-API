@@ -2,8 +2,8 @@
 using EliteRentalsAPI.Config;
 using EliteRentalsAPI.Data;
 using EliteRentalsAPI.Services;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -61,9 +61,10 @@ namespace EliteRentalsAPI
             builder.Services.AddAuthorization();
 
             builder.Services.AddSingleton<FcmService>();
+            builder.Services.AddScoped<EmailService>();
             builder.Services.AddHostedService<RentReminderService>();
             builder.Services.AddHostedService<LeaseExpiryService>();
-            builder.Services.AddHostedService<OverduePaymentService>();
+            builder.Services.AddHostedService<OverduePaymentService>();            
             builder.Services.AddHttpClient();
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();

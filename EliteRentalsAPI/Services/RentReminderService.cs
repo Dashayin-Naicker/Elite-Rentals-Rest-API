@@ -1,4 +1,6 @@
 ﻿using EliteRentalsAPI.Data;
+using EliteRentalsAPI.Helpers;
+using EliteRentalsAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace EliteRentalsAPI.Services
@@ -25,16 +27,14 @@ namespace EliteRentalsAPI.Services
                 try
                 {
                     var now = DateTime.UtcNow;
-                    var daysInMonth = DateTime.DaysInMonth(now.Year, now.Month);
-                    var lastDay = new DateTime(now.Year, now.Month, daysInMonth);
-
-                    // Rent reminders go out 3 days before month-end
+                    var lastDay = new DateTime(now.Year, now.Month, DateTime.DaysInMonth(now.Year, now.Month));
                     var reminderDay = lastDay.AddDays(-3);
 
                     if (now.Date == reminderDay.Date)
                     {
                         using var scope = _scopeFactory.CreateScope();
                         var ctx = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                        var email = scope.ServiceProvider.GetRequiredService<EmailService>();
 
                         var tenants = await ctx.Users
                             .Where(u => u.Role == "Tenant" && !string.IsNullOrEmpty(u.FcmToken))
@@ -45,11 +45,11 @@ namespace EliteRentalsAPI.Services
                             try
                             {
                                 var dataPayload = new Dictionary<string, string>
-                                {
-                                    { "type", "rent_due" },
-                                    { "tenantId", tenant.UserId.ToString() },
-                                    { "dueDate", lastDay.ToString("yyyy-MM-dd") }
-                                };
+                            {
+                                { "type", "rent_due" },
+                                { "tenantId", tenant.UserId.ToString() },
+                                { "dueDate", lastDay.ToString("yyyy-MM-dd") }
+                            };
 
                                 await _fcm.SendAsync(
                                     tenant.FcmToken,
@@ -57,6 +57,21 @@ namespace EliteRentalsAPI.Services
                                     $"Hi {tenant.FirstName}, your rent is due on {lastDay:dd MMM}.",
                                     dataPayload
                                 );
+
+                                if (!string.IsNullOrEmpty(tenant.Email))
+                                {
+                                    string subject = "Rent Payment Reminder";
+                                    string messageBody = $@"
+<p>Dear {tenant.FirstName},</p>
+<p>This is a friendly reminder that your rent is due on <b>{lastDay:dd MMM yyyy}</b>.</p>
+<p>Please ensure your payment is made before the due date to avoid penalties.</p>
+<a class='button' href='#'>Pay Rent Now</a>
+<p>Thank you,<br>Elite Rentals</p>
+";
+                                    string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
+                                    email.SendEmail(tenant.Email, subject, htmlBody);
+                                    _logger.LogInformation("📧 Rent reminder email sent to {Email}", tenant.Email);
+                                }
 
                                 _logger.LogInformation("✅ Sent rent reminder to {Tenant}", tenant.Email);
                             }
@@ -67,7 +82,6 @@ namespace EliteRentalsAPI.Services
                         }
                     }
 
-                    // Wait 24 hours before checking again
                     await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
                 }
                 catch (Exception ex)
@@ -80,4 +94,5 @@ namespace EliteRentalsAPI.Services
             _logger.LogInformation("🏠 Rent Reminder Service stopped.");
         }
     }
+
 }
