@@ -343,6 +343,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Lease.IsArchived",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lease.ArchivedDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
         "Name": "Amount",
         "Type": "System.Decimal",
         "IsRequired": false
@@ -608,6 +618,58 @@
     "Method": "GetDocument",
     "RelativePath": "api/Lease/{id}/document",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Archive",
+    "RelativePath": "api/Lease/archive/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "GetArchived",
+    "RelativePath": "api/Lease/archived",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.LeaseController",
+    "Method": "Restore",
+    "RelativePath": "api/Lease/restore/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -1184,6 +1246,48 @@
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "ArchiveMessage",
+    "RelativePath": "api/Message/archive/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "GetArchivedMessages",
+    "RelativePath": "api/Message/archived/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EliteRentalsAPI.Models.Message, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
     "Method": "SendBroadcast",
     "RelativePath": "api/Message/broadcast",
     "HttpMethod": "POST",
@@ -1324,6 +1428,22 @@
         "Name": "dueDate",
         "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MessageController",
+    "Method": "RestoreMessage",
+    "RelativePath": "api/Message/restore/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
