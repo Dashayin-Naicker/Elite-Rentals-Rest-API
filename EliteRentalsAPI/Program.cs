@@ -69,8 +69,6 @@ namespace EliteRentalsAPI
             builder.Logging.ClearProviders();
             builder.Logging.AddConsole();
 
-            //push
-
 
             var app = builder.Build();
 
