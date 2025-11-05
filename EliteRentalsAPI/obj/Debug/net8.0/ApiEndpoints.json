@@ -1841,7 +1841,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "EliteRentalsAPI.Models.Property",
+        "Type": "EliteRentalsAPI.Models.DTOs.PropertyReadDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -112,7 +112,7 @@ namespace EliteRentalsAPI.Controllers
 
         // ✅ Get property by ID
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Property>> Get(int id)
+        public async Task<ActionResult<PropertyReadDto>> Get(int id)
         {
             var prop = await _ctx.Properties
                 .Include(p => p.Images)
@@ -121,7 +121,36 @@ namespace EliteRentalsAPI.Controllers
             if (prop == null)
                 return NotFound(new { Message = $"Property {id} not found" });
 
-            return Ok(prop);
+            var dto = new PropertyReadDto
+            {
+                PropertyId = prop.PropertyId,
+                Title = prop.Title,
+                Description = prop.Description,
+                Address = prop.Address,
+                City = prop.City,
+                Province = prop.Province,
+                Country = prop.Country,
+                RentAmount = prop.RentAmount,
+                NumOfBedrooms = prop.NumOfBedrooms,
+                NumOfBathrooms = prop.NumOfBathrooms,
+                ParkingType = prop.ParkingType,
+                NumOfParkingSpots = prop.NumOfParkingSpots,
+                PetFriendly = prop.PetFriendly,
+                Status = prop.Status,
+                ImageUrls = prop.Images?.Select(i =>
+                    $"{Request.Scheme}://{Request.Host}/api/property/image/{i.PropertyImageId}"
+    ).ToList(),
+                Manager = prop.Manager == null ? null : new ManagerReadDto
+                {
+                    UserId = prop.Manager.UserId,
+                    FirstName = prop.Manager.FirstName,
+                    LastName = prop.Manager.LastName,
+                    Email = prop.Manager.Email
+                }
+            };
+
+            return Ok(dto);
+
         }
 
         // ✅ Download specific property image
