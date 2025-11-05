@@ -18,6 +18,9 @@
         public string? Status { get; set; }
 
         public ManagerReadDto? Manager { get; set; }
+
+        public List<string>? ImageUrls { get; set; } = new();
+
     }
 
     public class ManagerReadDto

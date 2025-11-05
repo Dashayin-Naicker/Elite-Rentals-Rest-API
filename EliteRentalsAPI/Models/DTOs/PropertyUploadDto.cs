@@ -15,6 +15,8 @@
         public int NumOfParkingSpots { get; set; }
         public bool PetFriendly { get; set; }
         public string Status { get; set; }
+
+        public List<IFormFile>? Images { get; set; }
     }
 
 }

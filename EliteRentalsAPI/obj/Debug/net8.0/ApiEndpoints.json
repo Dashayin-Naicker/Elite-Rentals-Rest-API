@@ -233,13 +233,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Lease.Property.ImageData",
-        "Type": "System.Byte[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "Lease.Property.ImageType",
-        "Type": "System.String",
+        "Name": "Lease.Property.Images",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.PropertyImage, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
@@ -905,13 +900,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Property.ImageData",
-        "Type": "System.Byte[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "Property.ImageType",
-        "Type": "System.String",
+        "Name": "Property.Images",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.PropertyImage, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {
@@ -1798,8 +1788,8 @@
         "IsRequired": false
       },
       {
-        "Name": "image",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
       }
     ],
@@ -1875,76 +1865,6 @@
         "IsRequired": true
       },
       {
-        "Name": "PropertyId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ManagerId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.UserId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.FirstName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.LastName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.PasswordHash",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.Role",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.LanguagePreference",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.NotificationPreference",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.CreatedAt",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.IsActive",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.TenantApproval",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Manager.FcmToken",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "Title",
         "Type": "System.String",
         "IsRequired": false
@@ -2010,28 +1930,8 @@
         "IsRequired": false
       },
       {
-        "Name": "ListingDate",
-        "Type": "System.DateTime",
-        "IsRequired": false
-      },
-      {
-        "Name": "ImageData",
-        "Type": "System.Byte[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "ImageType",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Leases",
-        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.Lease, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "image",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "Images",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
       }
     ],
@@ -2056,35 +1956,14 @@
   {
     "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
     "Method": "GetImage",
-    "RelativePath": "api/Property/{id}/image",
+    "RelativePath": "api/Property/image/{imageId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "imageId",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EliteRentalsAPI.Controllers.PropertyController",
-    "Method": "UpdateStatus",
-    "RelativePath": "api/Property/{id}/status",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "EliteRentalsAPI.Models.DTOs.PropertyStatusDto",
         "IsRequired": true
       }
     ],
@@ -2249,13 +2128,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Property.ImageData",
-        "Type": "System.Byte[]",
-        "IsRequired": false
-      },
-      {
-        "Name": "Property.ImageType",
-        "Type": "System.String",
+        "Name": "Property.Images",
+        "Type": "System.Collections.Generic.ICollection\u00601[[EliteRentalsAPI.Models.PropertyImage, EliteRentalsAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       },
       {

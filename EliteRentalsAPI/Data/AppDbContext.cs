@@ -18,6 +18,9 @@ namespace EliteRentalsAPI.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<Report> Reports { get; set; }
 
+        public DbSet<PropertyImage> PropertyImages { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Explicit PKs
@@ -96,6 +99,13 @@ namespace EliteRentalsAPI.Data
                 .HasOne(r => r.Manager)
                 .WithMany()
                 .HasForeignKey(r => r.ManagerId);
+
+            modelBuilder.Entity<PropertyImage>()
+    .HasOne(pi => pi.Property)
+    .WithMany(p => p.Images)
+    .HasForeignKey(pi => pi.PropertyId)
+    .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

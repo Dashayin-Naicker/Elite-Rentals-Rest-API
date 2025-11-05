@@ -14,10 +14,10 @@ namespace EliteRentalsAPI.Controllers
         private readonly AppDbContext _ctx;
         public PropertyController(AppDbContext ctx) { _ctx = ctx; }
 
-        // Create property
+        // ✅ Create property with multiple images
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPost]
-        public async Task<ActionResult<Property>> Create([FromForm] PropertyUploadDto dto, IFormFile? image)
+        public async Task<ActionResult<Property>> Create([FromForm] PropertyUploadDto dto)
         {
             if (!ModelState.IsValid)
             {
@@ -45,15 +45,23 @@ namespace EliteRentalsAPI.Controllers
                 PetFriendly = dto.PetFriendly,
                 Status = dto.Status,
                 ManagerId = managerId,
-                ListingDate = DateTime.UtcNow
+                ListingDate = DateTime.UtcNow,
+                Images = new List<PropertyImage>()
             };
 
-            if (image != null)
+            // ✅ Handle multiple images
+            if (dto.Images != null && dto.Images.Count > 0)
             {
-                using var ms = new MemoryStream();
-                await image.CopyToAsync(ms);
-                property.ImageData = ms.ToArray();
-                property.ImageType = image.ContentType ?? "image/jpeg";
+                foreach (var img in dto.Images)
+                {
+                    using var ms = new MemoryStream();
+                    await img.CopyToAsync(ms);
+                    property.Images.Add(new PropertyImage
+                    {
+                        ImageData = ms.ToArray(),
+                        ImageType = img.ContentType ?? "image/jpeg"
+                    });
+                }
             }
 
             _ctx.Properties.Add(property);
@@ -62,12 +70,13 @@ namespace EliteRentalsAPI.Controllers
             return CreatedAtAction(nameof(Get), new { id = property.PropertyId }, property);
         }
 
-        // Get all properties (public)
+        // ✅ Get all properties
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PropertyReadDto>>> GetAll()
         {
             var props = await _ctx.Properties
                 .Include(p => p.Manager)
+                .Include(p => p.Images)
                 .Select(p => new PropertyReadDto
                 {
                     PropertyId = p.PropertyId,
@@ -84,6 +93,10 @@ namespace EliteRentalsAPI.Controllers
                     NumOfParkingSpots = p.NumOfParkingSpots,
                     PetFriendly = p.PetFriendly,
                     Status = p.Status,
+                    ImageUrls = p.Images.Select(i =>
+    $"{Request.Scheme}://{Request.Host}/api/property/image/{i.PropertyImageId}"
+).ToList(),
+
                     Manager = p.Manager == null ? null : new ManagerReadDto
                     {
                         UserId = p.Manager.UserId,
@@ -97,84 +110,85 @@ namespace EliteRentalsAPI.Controllers
             return Ok(props);
         }
 
-
-        // Get property by ID (public)
+        // ✅ Get property by ID
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Property>> Get(int id)
         {
-            var prop = await _ctx.Properties.FindAsync(id);
-            if (prop == null) return NotFound(new { Message = $"Property {id} not found" });
+            var prop = await _ctx.Properties
+                .Include(p => p.Images)
+                .FirstOrDefaultAsync(p => p.PropertyId == id);
+
+            if (prop == null)
+                return NotFound(new { Message = $"Property {id} not found" });
+
             return Ok(prop);
         }
 
-        // Download property image
-        [HttpGet("{id:int}/image")]
-        public async Task<IActionResult> GetImage(int id)
+        // ✅ Download specific property image
+        [HttpGet("image/{imageId:int}")]
+        public async Task<IActionResult> GetImage(int imageId)
         {
-            var prop = await _ctx.Properties.FindAsync(id);
-            if (prop == null || prop.ImageData == null)
+            var img = await _ctx.PropertyImages.FindAsync(imageId);
+            if (img == null)
                 return NotFound(new { Message = "Image not found" });
 
-            return File(prop.ImageData, prop.ImageType ?? "image/jpeg", $"property_{id}_image");
+            return File(img.ImageData, img.ImageType, $"property_image_{imageId}");
         }
 
-        // Update property
+        // ✅ Update property & optionally add new images
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, [FromForm] Property updated, IFormFile? image)
+        public async Task<IActionResult> Update(int id, [FromForm] PropertyUploadDto dto)
         {
-            var prop = await _ctx.Properties.FindAsync(id);
+            var prop = await _ctx.Properties.Include(p => p.Images).FirstOrDefaultAsync(p => p.PropertyId == id);
             if (prop == null) return NotFound(new { Message = $"Property {id} not found" });
 
-            prop.Title = updated.Title;
-            prop.Description = updated.Description;
-            prop.Address = updated.Address;
-            prop.City = updated.City;
-            prop.Province = updated.Province;
-            prop.Country = updated.Country;
-            prop.RentAmount = updated.RentAmount;
-            prop.NumOfBedrooms = updated.NumOfBedrooms;
-            prop.NumOfBathrooms = updated.NumOfBathrooms;
-            prop.ParkingType = updated.ParkingType;
-            prop.NumOfParkingSpots = updated.NumOfParkingSpots;
-            prop.PetFriendly = updated.PetFriendly;
-            prop.Status = updated.Status;
+            prop.Title = dto.Title;
+            prop.Description = dto.Description;
+            prop.Address = dto.Address;
+            prop.City = dto.City;
+            prop.Province = dto.Province;
+            prop.Country = dto.Country;
+            prop.RentAmount = dto.RentAmount;
+            prop.NumOfBedrooms = dto.NumOfBedrooms;
+            prop.NumOfBathrooms = dto.NumOfBathrooms;
+            prop.ParkingType = dto.ParkingType;
+            prop.NumOfParkingSpots = dto.NumOfParkingSpots;
+            prop.PetFriendly = dto.PetFriendly;
+            prop.Status = dto.Status;
 
-            if (image != null)
+            if (dto.Images != null && dto.Images.Count > 0)
             {
-                using var ms = new MemoryStream();
-                await image.CopyToAsync(ms);
-                prop.ImageData = ms.ToArray();
-                prop.ImageType = image.ContentType ?? "image/jpeg";
+                foreach (var img in dto.Images)
+                {
+                    using var ms = new MemoryStream();
+                    await img.CopyToAsync(ms);
+                    prop.Images.Add(new PropertyImage
+                    {
+                        ImageData = ms.ToArray(),
+                        ImageType = img.ContentType ?? "image/jpeg"
+                    });
+                }
             }
 
             await _ctx.SaveChangesAsync();
             return Ok(new { Message = $"Property {id} updated successfully" });
         }
 
-        // Update property status
-        [Authorize(Roles = "Admin,PropertyManager")]
-        [HttpPut("{id:int}/status")]
-        public async Task<IActionResult> UpdateStatus(int id, [FromBody] PropertyStatusDto dto)
-        {
-            var prop = await _ctx.Properties.FindAsync(id);
-            if (prop == null) return NotFound(new { Message = $"Property {id} not found" });
-
-            prop.Status = dto.Status;
-            await _ctx.SaveChangesAsync();
-            return Ok(new { Message = $"Property {id} status updated to {dto.Status}" });
-        }
-
-        // Delete property
+        // ✅ Delete property and its images
         [Authorize(Roles = "Admin,PropertyManager")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var prop = await _ctx.Properties.FindAsync(id);
+            var prop = await _ctx.Properties.Include(p => p.Images).FirstOrDefaultAsync(p => p.PropertyId == id);
             if (prop == null) return NotFound(new { Message = $"Property {id} not found" });
+
+            if (prop.Images != null)
+                _ctx.PropertyImages.RemoveRange(prop.Images);
 
             _ctx.Properties.Remove(prop);
             await _ctx.SaveChangesAsync();
+
             return Ok(new { Message = $"Property {id} deleted successfully" });
         }
     }

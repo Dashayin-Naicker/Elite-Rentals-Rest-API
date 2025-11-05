@@ -27,8 +27,10 @@ namespace EliteRentalsAPI.Models
         public string Status { get; set; } = "Available";
         public DateTime ListingDate { get; set; } = DateTime.UtcNow;
 
-        public byte[]? ImageData { get; set; }
-        public string? ImageType { get; set; }
+        /*        public byte[]? ImageData { get; set; }
+                public string? ImageType { get; set; }*/
+
+        public ICollection<PropertyImage>? Images { get; set; }
 
         //Leases navigation
         public ICollection<Lease>? Leases { get; set; }

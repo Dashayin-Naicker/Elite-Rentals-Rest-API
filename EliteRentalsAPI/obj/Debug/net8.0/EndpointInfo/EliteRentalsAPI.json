@@ -167,12 +167,11 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "Lease.Property.ImageData": {
-                    "type": "string",
-                    "format": "byte"
-                  },
-                  "Lease.Property.ImageType": {
-                    "type": "string"
+                  "Lease.Property.Images": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PropertyImage"
+                    }
                   },
                   "Lease.Property.Leases": {
                     "type": "array",
@@ -411,10 +410,7 @@
                 "Lease.Property.ListingDate": {
                   "style": "form"
                 },
-                "Lease.Property.ImageData": {
-                  "style": "form"
-                },
-                "Lease.Property.ImageType": {
+                "Lease.Property.Images": {
                   "style": "form"
                 },
                 "Lease.Property.Leases": {
@@ -1153,12 +1149,11 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "Property.ImageData": {
-                    "type": "string",
-                    "format": "byte"
-                  },
-                  "Property.ImageType": {
-                    "type": "string"
+                  "Property.Images": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PropertyImage"
+                    }
                   },
                   "Property.Leases": {
                     "type": "array",
@@ -1371,10 +1366,7 @@
                 "Property.ListingDate": {
                   "style": "form"
                 },
-                "Property.ImageData": {
-                  "style": "form"
-                },
-                "Property.ImageType": {
+                "Property.Images": {
                   "style": "form"
                 },
                 "Property.Leases": {
@@ -2710,9 +2702,12 @@
                   "Status": {
                     "type": "string"
                   },
-                  "image": {
-                    "type": "string",
-                    "format": "binary"
+                  "Images": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
                   }
                 }
               },
@@ -2756,7 +2751,7 @@
                 "Status": {
                   "style": "form"
                 },
-                "image": {
+                "Images": {
                   "style": "form"
                 }
               }
@@ -2883,52 +2878,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "PropertyId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "ManagerId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Manager.UserId": {
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "Manager.FirstName": {
-                    "type": "string"
-                  },
-                  "Manager.LastName": {
-                    "type": "string"
-                  },
-                  "Manager.Email": {
-                    "type": "string"
-                  },
-                  "Manager.PasswordHash": {
-                    "type": "string"
-                  },
-                  "Manager.Role": {
-                    "type": "string"
-                  },
-                  "Manager.LanguagePreference": {
-                    "type": "string"
-                  },
-                  "Manager.NotificationPreference": {
-                    "type": "string"
-                  },
-                  "Manager.CreatedAt": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "Manager.IsActive": {
-                    "type": "boolean"
-                  },
-                  "Manager.TenantApproval": {
-                    "type": "string"
-                  },
-                  "Manager.FcmToken": {
-                    "type": "string"
-                  },
                   "Title": {
                     "type": "string"
                   },
@@ -2972,72 +2921,16 @@
                   "Status": {
                     "type": "string"
                   },
-                  "ListingDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
-                  "ImageData": {
-                    "type": "string",
-                    "format": "byte"
-                  },
-                  "ImageType": {
-                    "type": "string"
-                  },
-                  "Leases": {
+                  "Images": {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/Lease"
+                      "type": "string",
+                      "format": "binary"
                     }
-                  },
-                  "image": {
-                    "type": "string",
-                    "format": "binary"
                   }
                 }
               },
               "encoding": {
-                "PropertyId": {
-                  "style": "form"
-                },
-                "ManagerId": {
-                  "style": "form"
-                },
-                "Manager.UserId": {
-                  "style": "form"
-                },
-                "Manager.FirstName": {
-                  "style": "form"
-                },
-                "Manager.LastName": {
-                  "style": "form"
-                },
-                "Manager.Email": {
-                  "style": "form"
-                },
-                "Manager.PasswordHash": {
-                  "style": "form"
-                },
-                "Manager.Role": {
-                  "style": "form"
-                },
-                "Manager.LanguagePreference": {
-                  "style": "form"
-                },
-                "Manager.NotificationPreference": {
-                  "style": "form"
-                },
-                "Manager.CreatedAt": {
-                  "style": "form"
-                },
-                "Manager.IsActive": {
-                  "style": "form"
-                },
-                "Manager.TenantApproval": {
-                  "style": "form"
-                },
-                "Manager.FcmToken": {
-                  "style": "form"
-                },
                 "Title": {
                   "style": "form"
                 },
@@ -3077,19 +2970,7 @@
                 "Status": {
                   "style": "form"
                 },
-                "ListingDate": {
-                  "style": "form"
-                },
-                "ImageData": {
-                  "style": "form"
-                },
-                "ImageType": {
-                  "style": "form"
-                },
-                "Leases": {
-                  "style": "form"
-                },
-                "image": {
+                "Images": {
                   "style": "form"
                 }
               }
@@ -3124,14 +3005,14 @@
         }
       }
     },
-    "/api/Property/{id}/image": {
+    "/api/Property/image/{imageId}": {
       "get": {
         "tags": [
           "Property"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "imageId",
             "in": "path",
             "required": true,
             "schema": {
@@ -3140,48 +3021,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Property/{id}/status": {
-      "put": {
-        "tags": [
-          "Property"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PropertyStatusDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PropertyStatusDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PropertyStatusDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -3301,12 +3140,11 @@
                     "type": "string",
                     "format": "date-time"
                   },
-                  "Property.ImageData": {
-                    "type": "string",
-                    "format": "byte"
-                  },
-                  "Property.ImageType": {
-                    "type": "string"
+                  "Property.Images": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/PropertyImage"
+                    }
                   },
                   "Property.Leases": {
                     "type": "array",
@@ -3434,10 +3272,7 @@
                 "Property.ListingDate": {
                   "style": "form"
                 },
-                "Property.ImageData": {
-                  "style": "form"
-                },
-                "Property.ImageType": {
+                "Property.Images": {
                   "style": "form"
                 },
                 "Property.Leases": {
@@ -4661,6 +4496,34 @@
             "type": "string",
             "format": "date-time"
           },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PropertyImage"
+            },
+            "nullable": true
+          },
+          "leases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Lease"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PropertyImage": {
+        "type": "object",
+        "properties": {
+          "propertyImageId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "propertyId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "imageData": {
             "type": "string",
             "format": "byte",
@@ -4670,12 +4533,8 @@
             "type": "string",
             "nullable": true
           },
-          "leases": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Lease"
-            },
-            "nullable": true
+          "property": {
+            "$ref": "#/components/schemas/Property"
           }
         },
         "additionalProperties": false
@@ -4740,15 +4599,12 @@
           },
           "manager": {
             "$ref": "#/components/schemas/ManagerReadDto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PropertyStatusDto": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
+          },
+          "imageUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           }
         },
