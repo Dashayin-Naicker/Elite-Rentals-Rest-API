@@ -1101,6 +1101,27 @@
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "AddComment",
+    "RelativePath": "api/Maintenance/{id}/comment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "EliteRentalsAPI.Models.DTOs.MaintenanceCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
     "Method": "GetProof",
     "RelativePath": "api/Maintenance/{id}/proof",
     "HttpMethod": "GET",

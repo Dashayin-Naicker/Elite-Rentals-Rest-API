@@ -250,6 +250,48 @@ namespace EliteRentalsAPI.Controllers
             return Ok(new { message = "Proof updated successfully." });
         }
 
+        // 🔹 Add comment to maintenance (Caretaker)
+        [Authorize(Roles = "Caretaker")]
+        [HttpPost("{id:int}/comment")]
+        public async Task<IActionResult> AddComment(int id, [FromBody] MaintenanceCommentDto dto)
+        {
+            var maintenance = await _ctx.Maintenance
+                .Include(m => m.Tenant)
+                .Include(m => m.Caretaker)
+                .FirstOrDefaultAsync(m => m.MaintenanceId == id);
+
+            if (maintenance == null)
+                return NotFound(new { message = "Maintenance request not found." });
+
+            // Save comment to database
+            var comment = new Message
+            {
+                SenderId = dto.SenderId,
+                ReceiverId = maintenance.TenantId,
+                MessageText = $"🧰 Caretaker comment on maintenance #{id}: {dto.Comment}",
+                Timestamp = DateTime.UtcNow
+            };
+
+            _ctx.Messages.Add(comment);
+            await _ctx.SaveChangesAsync();
+
+            // Notify tenant via FCM
+            if (maintenance.Tenant?.FcmToken != null)
+            {
+                await _fcm.SendAsync(
+                    maintenance.Tenant.FcmToken,
+                    "💬 Maintenance Comment",
+                    $"Your caretaker left a new comment: \"{dto.Comment}\"",
+                    new Dictionary<string, string>
+                    {
+                { "type", "maintenance_comment" },
+                { "maintenanceId", id.ToString() }
+                    }
+                );
+            }
+
+            return Ok(new { message = "Comment added and tenant notified." });
+        }
 
 
 

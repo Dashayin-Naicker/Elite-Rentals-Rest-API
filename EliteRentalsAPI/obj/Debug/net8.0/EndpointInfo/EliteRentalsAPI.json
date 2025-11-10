@@ -1766,6 +1766,48 @@
         }
       }
     },
+    "/api/Maintenance/{id}/comment": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceCommentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceCommentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaintenanceCommentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Message": {
       "post": {
         "tags": [
@@ -4342,6 +4384,20 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaintenanceCommentDto": {
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string",
             "nullable": true
           }
         },
