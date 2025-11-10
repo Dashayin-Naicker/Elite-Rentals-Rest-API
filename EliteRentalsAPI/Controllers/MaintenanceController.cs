@@ -210,6 +210,27 @@ namespace EliteRentalsAPI.Controllers
             return Ok(new { message = "Caretaker assigned and notified successfully." });
         }
 
+        // Get all requests assigned to the current caretaker
+        [Authorize(Roles = "Caretaker")]
+        [HttpGet("caretaker-requests")]
+        public async Task<ActionResult<IEnumerable<Maintenance>>> GetCaretakerRequests()
+        {
+            var caretakerIdClaim = User.Claims.FirstOrDefault(c => c.Type == "userId")?.Value;
+            if (caretakerIdClaim == null || !int.TryParse(caretakerIdClaim, out int caretakerId))
+                return Unauthorized();
+
+            var caretakerRequests = await _ctx.Maintenance
+                .Include(m => m.Property)
+                .Include(m => m.Tenant)
+                .Include(m => m.Caretaker)
+                .Where(m => m.AssignedCaretakerId == caretakerId)
+                .OrderByDescending(m => m.CreatedAt)
+                .ToListAsync();
+
+            return Ok(caretakerRequests);
+        }
+
+
 
 
     }

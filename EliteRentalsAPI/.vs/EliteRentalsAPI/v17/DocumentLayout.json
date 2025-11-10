@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\leasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\leasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\propertycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,10 +87,6 @@
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\leasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\leasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\dtos\\applicationstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\dtos\\applicationstatusdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -123,14 +139,6 @@
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\maintenancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:controllers\\invoicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -163,16 +171,8 @@
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\maintenance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D9DD0463-EF6F-4C41-A6D2-075850B42CE9}|EliteRentalsAPI.csproj|c:\\users\\dasha\\onedrive - advtech ltd\\insy7315\\rest api\\elite-rentals-rest-api\\eliterentalsapi\\models\\dtos\\paymentcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -226,7 +226,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -250,33 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PropertyImage.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\PropertyImage.cs",
-              "RelativeDocumentMoniker": "Models\\PropertyImage.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\PropertyImage.cs",
-              "RelativeToolTip": "Models\\PropertyImage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T11:43:09.44Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Property.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Property.cs",
-              "RelativeDocumentMoniker": "Models\\Property.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Property.cs",
-              "RelativeToolTip": "Models\\Property.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAzwB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:17:25.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "PropertyController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\PropertyController.cs",
               "RelativeDocumentMoniker": "Controllers\\PropertyController.cs",
@@ -289,45 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PropertyUploadDto.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyUploadDto.cs",
-              "RelativeDocumentMoniker": "Models\\DTOs\\PropertyUploadDto.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyUploadDto.cs",
-              "RelativeToolTip": "Models\\DTOs\\PropertyUploadDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T13:11:57.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAQwGsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:25:33.805Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PropertyReadDto.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyReadDto.cs",
-              "RelativeDocumentMoniker": "Models\\DTOs\\PropertyReadDto.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyReadDto.cs",
-              "RelativeToolTip": "Models\\DTOs\\PropertyReadDto.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T18:46:26.393Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "PropertyStatusDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyStatusDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\PropertyStatusDto.cs",
@@ -339,7 +275,132 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InvoiceController.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\InvoiceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\InvoiceController.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\InvoiceController.cs",
+              "RelativeToolTip": "Controllers\\InvoiceController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:23:08.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LeaseController.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\LeaseController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LeaseController.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\LeaseController.cs",
+              "RelativeToolTip": "Controllers\\LeaseController.cs",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAUwAIBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T10:53:30.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MaintenanceController.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MaintenanceController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MaintenanceController.cs",
+              "RelativeToolTip": "Controllers\\MaintenanceController.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAqwNYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T14:28:23.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T15:16:36.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Maintenance.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Maintenance.cs",
+              "RelativeDocumentMoniker": "Models\\Maintenance.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Maintenance.cs",
+              "RelativeToolTip": "Models\\Maintenance.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T15:19:23.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PropertyReadDto.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyReadDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\PropertyReadDto.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyReadDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\PropertyReadDto.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T18:46:26.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAQwGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T15:25:33.805Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "PropertyUploadDto.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyUploadDto.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\PropertyUploadDto.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PropertyUploadDto.cs",
+              "RelativeToolTip": "Models\\DTOs\\PropertyUploadDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T13:11:57.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Property.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Property.cs",
+              "RelativeDocumentMoniker": "Models\\Property.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Property.cs",
+              "RelativeToolTip": "Models\\Property.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAzwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T15:17:25.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PropertyImage.cs",
+              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\PropertyImage.cs",
+              "RelativeDocumentMoniker": "Models\\PropertyImage.cs",
+              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\PropertyImage.cs",
+              "RelativeToolTip": "Models\\PropertyImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T11:43:09.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "Services\\TokenService.cs",
@@ -351,7 +412,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "OverduePaymentService.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Services\\OverduePaymentService.cs",
               "RelativeDocumentMoniker": "Services\\OverduePaymentService.cs",
@@ -363,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "EmailService.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "Services\\EmailService.cs",
@@ -375,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "AssignedCaretakerDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\AssignedCaretakerDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\AssignedCaretakerDto.cs",
@@ -387,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
@@ -399,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "ReportController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\ReportController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReportController.cs",
@@ -411,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "RentalApplicationsController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\RentalApplicationsController.cs",
               "RelativeDocumentMoniker": "Controllers\\RentalApplicationsController.cs",
@@ -423,7 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 19,
               "Title": "PaymentController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\PaymentController.cs",
               "RelativeDocumentMoniker": "Controllers\\PaymentController.cs",
@@ -435,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "NotificationController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\NotificationController.cs",
               "RelativeDocumentMoniker": "Controllers\\NotificationController.cs",
@@ -447,19 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "LeaseController.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\LeaseController.cs",
-              "RelativeDocumentMoniker": "Controllers\\LeaseController.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\LeaseController.cs",
-              "RelativeToolTip": "Controllers\\LeaseController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T10:53:30.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "ApplicationStatusDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\ApplicationStatusDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\ApplicationStatusDto.cs",
@@ -471,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "RentReminderService.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Services\\RentReminderService.cs",
               "RelativeDocumentMoniker": "Services\\RentReminderService.cs",
@@ -483,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "LeaseExpiryService.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Services\\LeaseExpiryService.cs",
               "RelativeDocumentMoniker": "Services\\LeaseExpiryService.cs",
@@ -495,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "FcmService.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Services\\FcmService.cs",
               "RelativeDocumentMoniker": "Services\\FcmService.cs",
@@ -507,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "Notification.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Notification.cs",
               "RelativeDocumentMoniker": "Models\\Notification.cs",
@@ -519,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "Report.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Report.cs",
               "RelativeDocumentMoniker": "Models\\Report.cs",
@@ -531,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "Lease.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Lease.cs",
               "RelativeDocumentMoniker": "Models\\Lease.cs",
@@ -543,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "LoginResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\LoginResponseDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\LoginResponseDto.cs",
@@ -555,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\RegisterDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\RegisterDto.cs",
@@ -567,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "PaymentStatusDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\PaymentStatusDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\PaymentStatusDto.cs",
@@ -579,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "MaintenanceStatusDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\MaintenanceStatusDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\MaintenanceStatusDto.cs",
@@ -591,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "ChangePasswordDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\ChangePasswordDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\ChangePasswordDto.cs",
@@ -603,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "MessageController.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MessageController.cs",
               "RelativeDocumentMoniker": "Controllers\\MessageController.cs",
@@ -615,31 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "MaintenanceController.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MaintenanceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MaintenanceController.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\MaintenanceController.cs",
-              "RelativeToolTip": "Controllers\\MaintenanceController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:28:23.959Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "InvoiceController.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\InvoiceController.cs",
-              "RelativeDocumentMoniker": "Controllers\\InvoiceController.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Controllers\\InvoiceController.cs",
-              "RelativeToolTip": "Controllers\\InvoiceController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-08T14:23:08.315Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "UserDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\UserDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\UserDto.cs",
@@ -651,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "SsoLoginDto.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\DTOs\\SsoLoginDto.cs",
               "RelativeDocumentMoniker": "Models\\DTOs\\SsoLoginDto.cs",
@@ -663,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -675,7 +700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "EmailTemplateHelper.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Helpers\\EmailTemplateHelper.cs",
               "RelativeDocumentMoniker": "Helpers\\EmailTemplateHelper.cs",
@@ -687,7 +712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "EliteRentalsAPI.csproj",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\EliteRentalsAPI.csproj",
               "RelativeDocumentMoniker": "EliteRentalsAPI.csproj",
@@ -699,7 +724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "RentalApplication.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\RentalApplication.cs",
               "RelativeDocumentMoniker": "Models\\RentalApplication.cs",
@@ -723,7 +748,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "Message.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Message.cs",
               "RelativeDocumentMoniker": "Models\\Message.cs",
@@ -735,7 +760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "Payment.cs",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Payment.cs",
               "RelativeDocumentMoniker": "Models\\Payment.cs",
@@ -747,19 +772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Maintenance.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Maintenance.cs",
-              "RelativeDocumentMoniker": "Models\\Maintenance.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\Maintenance.cs",
-              "RelativeToolTip": "Models\\Maintenance.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBkAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:19:23.005Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 42,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -768,18 +781,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-07T15:15:20.054Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\dasha\\OneDrive - ADvTECH Ltd\\INSY7315\\Rest API\\Elite-Rentals-Rest-API\\EliteRentalsAPI\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-07T15:16:36.913Z"
             },
             {
               "$type": "Document",
