@@ -230,6 +230,27 @@ namespace EliteRentalsAPI.Controllers
             return Ok(caretakerRequests);
         }
 
+        [Authorize(Roles = "Tenant,Caretaker,Admin,PropertyManager")]
+        [HttpPost("{id:int}/proof")]
+        public async Task<IActionResult> UpdateProof(int id, IFormFile proof)
+        {
+            var m = await _ctx.Maintenance.FindAsync(id);
+            if (m == null) return NotFound();
+
+            if (proof != null)
+            {
+                using var ms = new MemoryStream();
+                await proof.CopyToAsync(ms);
+                m.ProofData = ms.ToArray();
+                m.ProofType = proof.ContentType;
+                m.UpdatedAt = DateTime.UtcNow;
+                await _ctx.SaveChangesAsync();
+            }
+
+            return Ok(new { message = "Proof updated successfully." });
+        }
+
+
 
 
 

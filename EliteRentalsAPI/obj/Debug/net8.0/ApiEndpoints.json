@@ -1117,6 +1117,27 @@
   },
   {
     "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
+    "Method": "UpdateProof",
+    "RelativePath": "api/Maintenance/{id}/proof",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "proof",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EliteRentalsAPI.Controllers.MaintenanceController",
     "Method": "UpdateStatus",
     "RelativePath": "api/Maintenance/{id}/status",
     "HttpMethod": "PUT",
