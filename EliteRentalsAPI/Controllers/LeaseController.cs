@@ -28,7 +28,6 @@ namespace EliteRentalsAPI.Controllers
             lease.StartDate = DateTime.SpecifyKind(lease.StartDate, DateTimeKind.Utc);
             lease.EndDate = DateTime.SpecifyKind(lease.EndDate, DateTimeKind.Utc);
 
-            // 🔹 Validate property availability
             var property = await _ctx.Properties.FindAsync(lease.PropertyId);
             if (property == null)
                 return BadRequest($"Property with ID {lease.PropertyId} not found.");
@@ -36,36 +35,56 @@ namespace EliteRentalsAPI.Controllers
             if (property.Status == "Occupied")
                 return BadRequest("This property is already occupied. Please choose another property.");
 
-            // ✅ Proceed with lease creation
-            _ctx.Leases.Add(lease);
-            await _ctx.SaveChangesAsync();
+            lease.Status = "Active"; // optional default
+            property.Status = "Occupied"; // mark property as occupied
 
-            // ✅ Send email receipt to tenant
+            await using var transaction = await _ctx.Database.BeginTransactionAsync();
+            try
+            {
+                _ctx.Leases.Add(lease);
+                await _ctx.SaveChangesAsync(); // create lease and get LeaseId
+
+                // Commit property update at the same time
+                await transaction.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return StatusCode(500, $"Failed to create lease: {ex.Message}");
+            }
+
+            // Send email after transaction succeeds
             var tenant = await _ctx.Users.FindAsync(lease.TenantId);
             if (tenant != null)
             {
-                string subject = "Welcome to Your New Lease!";
-                string messageBody = $@"
-            <p>Hi {tenant.FirstName},</p>
-            <p>Great news! Your lease for property <b>{lease.PropertyId}</b> has been successfully set up 🎉</p>
-            <p>Here are the key details:</p>
-            <ul>
-                <li><b>Start Date:</b> {lease.StartDate:yyyy-MM-dd}</li>
-                <li><b>End Date:</b> {lease.EndDate:yyyy-MM-dd}</li>
-            </ul>
-            <p>If you have any questions or need help with your lease documents, feel free to reach out to your property manager.</p>
-            <p>We're excited to have you with us,<br><b>The Elite Rentals Team</b></p>";
-
-                string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
-                _email.SendEmail(tenant.Email, subject, htmlBody);
+                try
+                {
+                    string subject = "Welcome to Your New Lease!";
+                    string messageBody = $@"
+                <p>Hi {tenant.FirstName},</p>
+                <p>Your lease for property <b>{lease.PropertyId}</b> has been successfully created.</p>
+                <p>Start: {lease.StartDate:yyyy-MM-dd}, End: {lease.EndDate:yyyy-MM-dd}</p>";
+                    string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
+                    _email.SendEmail(tenant.Email, subject, htmlBody);
+                }
+                catch
+                {
+                    // Email failure should NOT break API
+                }
             }
 
-            // ✅ Mark property as Occupied
-            property.Status = "Occupied";
-            await _ctx.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(Get), new { id = lease.LeaseId }, lease);
+            return CreatedAtAction(nameof(Get), new { id = lease.LeaseId }, new
+            {
+                lease.LeaseId,
+                lease.PropertyId,
+                lease.TenantId,
+                lease.StartDate,
+                lease.EndDate,
+                lease.Deposit,
+                lease.Status
+            });
         }
+
 
 
         // Get all leases
