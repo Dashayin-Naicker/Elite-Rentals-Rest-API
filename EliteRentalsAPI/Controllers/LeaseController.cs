@@ -129,12 +129,34 @@ namespace EliteRentalsAPI.Controllers
         // Get lease by ID
         [Authorize]
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<Lease>> Get(int id)
+        public async Task<ActionResult<object>> Get(int id)
         {
-            var lease = await _ctx.Leases.FindAsync(id);
+            var lease = await _ctx.Leases
+                .Include(l => l.Tenant)
+                .Include(l => l.Property)
+                .FirstOrDefaultAsync(l => l.LeaseId == id);
+
             if (lease == null) return NotFound();
-            return lease;
+
+            // Map to a minimal DTO for the client
+            var dto = new
+            {
+                lease.LeaseId,
+                lease.StartDate,
+                lease.EndDate,
+                lease.Deposit,
+                lease.Status,
+                TenantId = lease.TenantId,
+                TenantName = lease.Tenant != null ? $"{lease.Tenant.FirstName} {lease.Tenant.LastName}" : "Unknown Tenant",
+                PropertyId = lease.PropertyId,
+                PropertyTitle = lease.Property?.Title ?? "Unknown Property",
+                lease.DocumentData,
+                lease.DocumentType
+            };
+
+            return Ok(dto);
         }
+
 
         // Download lease document
         [Authorize]
