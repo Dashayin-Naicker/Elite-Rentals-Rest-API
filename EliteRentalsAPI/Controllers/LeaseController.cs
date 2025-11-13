@@ -146,13 +146,26 @@ namespace EliteRentalsAPI.Controllers
                 lease.EndDate,
                 lease.Deposit,
                 lease.Status,
-                TenantId = lease.TenantId,
-                TenantName = lease.Tenant != null ? $"{lease.Tenant.FirstName} {lease.Tenant.LastName}" : "Unknown Tenant",
-                PropertyId = lease.PropertyId,
-                PropertyTitle = lease.Property?.Title ?? "Unknown Property",
+                Tenant = lease.Tenant != null ? new
+                {
+                    lease.Tenant.UserId,
+                    lease.Tenant.FirstName,
+                    lease.Tenant.LastName,
+                    lease.Tenant.Email,
+                    lease.Tenant.Role
+                } : null,
+                Property = lease.Property != null ? new
+                {
+                    lease.Property.PropertyId,
+                    lease.Property.Title,
+                    lease.Property.Description,
+                    lease.Property.RentAmount,
+                    lease.Property.Status
+                } : null,
                 lease.DocumentData,
                 lease.DocumentType
             };
+
 
             return Ok(dto);
         }
