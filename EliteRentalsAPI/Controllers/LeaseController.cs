@@ -25,10 +25,18 @@ namespace EliteRentalsAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Lease>> Create([FromBody] Lease lease)
         {
-
             lease.StartDate = DateTime.SpecifyKind(lease.StartDate, DateTimeKind.Utc);
             lease.EndDate = DateTime.SpecifyKind(lease.EndDate, DateTimeKind.Utc);
 
+            // 🔹 Validate property availability
+            var property = await _ctx.Properties.FindAsync(lease.PropertyId);
+            if (property == null)
+                return BadRequest($"Property with ID {lease.PropertyId} not found.");
+
+            if (property.Status == "Occupied")
+                return BadRequest("This property is already occupied. Please choose another property.");
+
+            // ✅ Proceed with lease creation
             _ctx.Leases.Add(lease);
             await _ctx.SaveChangesAsync();
 
@@ -38,24 +46,27 @@ namespace EliteRentalsAPI.Controllers
             {
                 string subject = "Welcome to Your New Lease!";
                 string messageBody = $@"
-    <p>Hi {tenant.FirstName},</p>
-    <p>Great news! Your lease for property <b>{lease.PropertyId}</b> has been successfully set up 🎉</p>
-    <p>Here are the key details:</p>
-    <ul>
-        <li><b>Start Date:</b> {lease.StartDate:yyyy-MM-dd}</li>
-        <li><b>End Date:</b> {lease.EndDate:yyyy-MM-dd}</li>
-    </ul>
-    <p>If you have any questions or need help with your lease documents, feel free to reach out to your property manager.</p>
-    <p>We're excited to have you with us,<br><b>The Elite Rentals Team</b></p>";
-
+            <p>Hi {tenant.FirstName},</p>
+            <p>Great news! Your lease for property <b>{lease.PropertyId}</b> has been successfully set up 🎉</p>
+            <p>Here are the key details:</p>
+            <ul>
+                <li><b>Start Date:</b> {lease.StartDate:yyyy-MM-dd}</li>
+                <li><b>End Date:</b> {lease.EndDate:yyyy-MM-dd}</li>
+            </ul>
+            <p>If you have any questions or need help with your lease documents, feel free to reach out to your property manager.</p>
+            <p>We're excited to have you with us,<br><b>The Elite Rentals Team</b></p>";
 
                 string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
                 _email.SendEmail(tenant.Email, subject, htmlBody);
-
             }
+
+            // ✅ Mark property as Occupied
+            property.Status = "Occupied";
+            await _ctx.SaveChangesAsync();
 
             return CreatedAtAction(nameof(Get), new { id = lease.LeaseId }, lease);
         }
+
 
         // Get all leases
         [Authorize(Roles = "Admin,PropertyManager,Tenant")]
@@ -169,9 +180,17 @@ namespace EliteRentalsAPI.Controllers
             if (!lease.IsArchived)
                 return BadRequest("Please archive the lease before deleting it permanently.");
 
+            // ✅ Mark property as Available before deletion
+            var property = await _ctx.Properties.FindAsync(lease.PropertyId);
+            if (property != null)
+            {
+                property.Status = "Available";
+            }
+
             _ctx.Leases.Remove(lease);
             await _ctx.SaveChangesAsync();
             return NoContent();
+
         }
 
         // 🔹 Archive a lease (soft delete)
@@ -187,7 +206,15 @@ namespace EliteRentalsAPI.Controllers
             lease.ArchivedDate = DateTime.UtcNow;
             lease.Status = "Archived";
 
+            // ✅ Mark property as Available
+            var property = await _ctx.Properties.FindAsync(lease.PropertyId);
+            if (property != null)
+            {
+                property.Status = "Available";
+            }
+
             await _ctx.SaveChangesAsync();
+
             return Ok(new { message = "Lease archived successfully." });
         }
 
@@ -204,8 +231,16 @@ namespace EliteRentalsAPI.Controllers
             lease.ArchivedDate = null;
             lease.Status = "Active";
 
+            // ✅ Mark property as Occupied
+            var property = await _ctx.Properties.FindAsync(lease.PropertyId);
+            if (property != null)
+            {
+                property.Status = "Occupied";
+            }
+
             await _ctx.SaveChangesAsync();
             return Ok(new { message = "Lease restored successfully." });
+
         }
 
         // 🔹 Get all archived leases (like GetAll)
