@@ -5,8 +5,16 @@
         private const string BrandColor = "#2E86C1"; // Elite Rentals Blue
         private const string AccentColor = "#1ABC9C"; // Accent teal
 
-        public static string WrapEmail(string title, string messageBody)
+        public static string WrapEmail(string title, string messageBody, string applicationLink = null)
         {
+            string linkSection = string.IsNullOrEmpty(applicationLink)
+                ? ""
+                : $@"<p style='margin-top: 20px; text-align: center;'>
+                        <a href='{applicationLink}' style='color: {AccentColor}; text-decoration: underline; font-weight: bold;'>
+                            View Your Application Status
+                        </a>
+                    </p>";
+
             return $@"
             <html>
                 <head>
@@ -20,7 +28,7 @@
                         }}
                         .container {{
                             max-width: 600px;
-                            margin: 20px auto;
+                            margin: 30px auto;
                             background-color: #ffffff;
                             border-radius: 10px;
                             overflow: hidden;
@@ -39,18 +47,9 @@
                         .footer {{
                             background-color: #f1f1f1;
                             text-align: center;
-                            padding: 10px;
+                            padding: 15px;
                             font-size: 12px;
                             color: #666;
-                        }}
-                        .button {{
-                            display: inline-block;
-                            background-color: {AccentColor};
-                            color: white;
-                            padding: 10px 20px;
-                            border-radius: 5px;
-                            text-decoration: none;
-                            margin-top: 10px;
                         }}
                     </style>
                 </head>
@@ -61,6 +60,7 @@
                         </div>
                         <div class='content'>
                             {messageBody}
+                            {linkSection}
                         </div>
                         <div class='footer'>
                             <p>© {DateTime.UtcNow.Year} Elite Rentals. All rights reserved.</p>

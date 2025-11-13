@@ -36,14 +36,18 @@ namespace EliteRentalsAPI.Controllers
             var tenant = await _ctx.Users.FindAsync(lease.TenantId);
             if (tenant != null)
             {
-                string subject = "Your Lease Agreement Confirmation";
+                string subject = "Welcome to Your New Lease!";
                 string messageBody = $@"
-    <p>Dear {tenant.FirstName},</p>
-    <p>Your lease for property <b>{lease.PropertyId}</b> has been successfully created.</p>
-    <p><b>Start Date:</b> {lease.StartDate:yyyy-MM-dd}<br>
-       <b>End Date:</b> {lease.EndDate:yyyy-MM-dd}</p>
-    <a class='button' href='#'>View Lease Details</a>
-    <p>Thank you,<br>Elite Rentals</p>";
+    <p>Hi {tenant.FirstName},</p>
+    <p>Great news! Your lease for property <b>{lease.PropertyId}</b> has been successfully set up 🎉</p>
+    <p>Here are the key details:</p>
+    <ul>
+        <li><b>Start Date:</b> {lease.StartDate:yyyy-MM-dd}</li>
+        <li><b>End Date:</b> {lease.EndDate:yyyy-MM-dd}</li>
+    </ul>
+    <p>If you have any questions or need help with your lease documents, feel free to reach out to your property manager.</p>
+    <p>We're excited to have you with us,<br><b>The Elite Rentals Team</b></p>";
+
 
                 string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
                 _email.SendEmail(tenant.Email, subject, htmlBody);

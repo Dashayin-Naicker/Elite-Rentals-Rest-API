@@ -38,13 +38,14 @@ namespace EliteRentalsAPI.Controllers
             // ✅ Send email confirmation to applicant
             if (!string.IsNullOrEmpty(app.Email))
             {
-                string subject = "Rental Application Received";
+                string subject = "We've Received Your Rental Application!";
                 string messageBody = $@"
-    <p>Dear {app.ApplicantName},</p>
-    <p>Thank you for applying for a rental property with Elite Rentals.</p>
-    <p>Your application ID: <b>{app.ApplicationId}</b>.</p>
-    <a class='button' href='#'>View Application Status</a>
-    <p>We will contact you once it has been reviewed.</p>";
+<p>Hi {app.ApplicantName},</p>
+<p>Thanks for submitting your rental application to Elite Rentals — we're excited to review it!</p>
+<p>Your application ID is <b>{app.ApplicationId}</b>. Our team will carefully assess your details and get back to you shortly.</p>
+<p>If you have any questions in the meantime, feel free to reach out.</p>
+<p>Warm regards,<br><b>The Elite Rentals Team</b></p>";
+
 
                 string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
                 _email.SendEmail(app.Email, subject, htmlBody);
@@ -92,12 +93,15 @@ namespace EliteRentalsAPI.Controllers
             await _ctx.SaveChangesAsync();
 
             // ✅ Send status update email
-            string subject = $"Your Application Has Been {dto.Status}";
+            string subject = $"Update on Your Rental Application: {dto.Status}";
             string messageBody = $@"
-    <p>Dear {app.ApplicantName},</p>
-    <p>Your rental application has been <b>{dto.Status}</b>.</p>
-    <a class='button' href='#'>View Application</a>
-    <p>Thank you for choosing Elite Rentals.</p>";
+<p>Hi {app.ApplicantName},</p>
+<p>We've reviewed your rental application and the status is now: <b>{dto.Status}</b>.</p>
+{(dto.Status == "Approved"
+                ? "<p>Congratulations! A team member will be in touch soon to finalize the next steps.</p>"
+                : "<p>We appreciate your interest, and while this property wasn't the right fit, we encourage you to explore other listings with us.</p>")}
+<p>Thank you for considering Elite Rentals.<br><b>The Elite Rentals Team</b></p>";
+
 
             string htmlBody = EmailTemplateHelper.WrapEmail(subject, messageBody);
             _email.SendEmail(app.Email, subject, htmlBody);
